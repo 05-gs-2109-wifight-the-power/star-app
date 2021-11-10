@@ -48,7 +48,8 @@ const Star = db.define("star", {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: "",
+    defaultValue:
+      "https://star-name-registry.org/4-large_default/extra-bright-name-a-star.jpg",
   },
   isAvailable: {
     type: Sequelize.BOOLEAN,
