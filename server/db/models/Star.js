@@ -39,7 +39,7 @@ const Star = db.define("star", {
     },
   },
   price: {
-    type: Sequelize.DECIMAL(10, 2),
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
       notEmpty: true,
@@ -49,7 +49,7 @@ const Star = db.define("star", {
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:
-      "https://star-name-registry.org/4-large_default/extra-bright-name-a-star.jpg",
+      "https://i.pinimg.com/736x/07/a4/bc/07a4bc564dbedc540af1216093df9cb5.jpg",
   },
   isAvailable: {
     type: Sequelize.BOOLEAN,
@@ -60,6 +60,10 @@ const Star = db.define("star", {
     defaultValue: "Unclaimed",
   },
   distanceFromEarth: {
+    type: Sequelize.INTEGER,
+    defaultValue: 1,
+  },
+  quantity: {
     type: Sequelize.INTEGER,
     defaultValue: 1,
   },
