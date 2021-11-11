@@ -11,8 +11,6 @@ const {
 // adding data
 const stars = JSON.parse(fs.readFileSync("star-data.json"));
 
-console.log(stars);
-
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
