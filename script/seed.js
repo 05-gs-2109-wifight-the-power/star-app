@@ -8,6 +8,8 @@ const {db, models: {User, Star, Cart} } = require('../server/db')
 // adding data
 const stars = JSON.parse(fs.readFileSync('star-data.json'))
 
+console.log(stars)
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -18,14 +20,15 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({ username: 'cody', password: '123', email: 'cody@cody.com' }),
+    // User.create({ username: 'murphy', password: '123' }),
+
   ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 
-  await Promise.all(stars.map(star => Star.create({
+  const starData = await Promise.all(stars.map(star => Star.create({
     name: star.name,
     coordinates: star.coordinates,
     bio: star.bio,
@@ -34,14 +37,16 @@ async function seed() {
     imageUrl: star.imageUrl,
     isAvailable: star.isAvailable,
     userStarName: star.userStarName,
-    distanceFromEarth: star.distanceFromEarth
+    distanceFromEarth: star.distanceFromEarth,
+    quantity: star.quantity
   })))
 
   return {
     users: {
       cody: users[0],
       murphy: users[1]
-    }
+    },
+    starData
   }
 }
 

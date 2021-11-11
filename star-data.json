@@ -4,362 +4,395 @@
     "coordinates": "RA 19h 10m 46s | Dec -21° 59' 35\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 510
+    "distanceFromEarth": 510,
+    "quantity": 1
   },
   {
     "name": "Alcyone",
     "coordinates": "RA 4h 47m 29s | Dec +24° 6' 18\"",
     "bio": "Taurus (Latin for \"the Bull\") is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Taurus",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://www.thoughtco.com/thmb/sT53AUH4zR_9hV2dYB_CnP3vAQY=/735x0/taurus-5851b41c5f9b586e025e8885.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 403
+    "distanceFromEarth": 403,
+    "quantity": 1
   },
   {
     "name": "Aldebaran",
     "coordinates": "RA 5h 36m 55s | Dec +17° 31' 33\"",
     "bio": "Taurus (Latin for \"the Bull\") is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Taurus",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://www.thoughtco.com/thmb/sT53AUH4zR_9hV2dYB_CnP3vAQY=/735x0/taurus-5851b41c5f9b586e025e8885.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 67
+    "distanceFromEarth": 67,
+    "quantity": 1
   },
   {
     "name": "Algieba",
     "coordinates": "RA 10h 20m 58s | Dec +20° 50' 29\"",
     "bio": "Leo /ˈliːoʊ/ is one of the constellations of the zodiac, lying between Cancer the crab to the west and Virgo the maiden to the east. It is located in the Northern celestial hemisphere.",
     "constellation": "Leo",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/photos/leo-constellation-zodiac-sign-leo-constellation-lines-picture-id638713934?k=20&m=638713934&s=170667a&w=0&h=2KkX0WIw-i5YdUwR-RfdYlirD8mNpZYaOgzASRIgp24=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 130
+    "distanceFromEarth": 130,
+    "quantity": 1
   },
   {
     "name": "Alhena",
     "coordinates": "RA 7h 38m 43s | Dec +16° 24' 57\"",
     "bio": "Gemini is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Gemini",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://www.thoughtco.com/thmb/4GNxtyUN7urQqFEYZoMTiB8-yWw=/933x700/smart/filters:no_upscale()/gemini-5851b2035f9b586e02590789.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 109
+    "distanceFromEarth": 109,
+    "quantity": 1
   },
   {
     "name": "Alnath",
     "coordinates": "RA 5h 26m 18s | Dec +29° 36' 27\"",
     "bio": "Taurus (Latin for \"the Bull\") is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Taurus",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://www.thoughtco.com/thmb/sT53AUH4zR_9hV2dYB_CnP3vAQY=/735x0/taurus-5851b41c5f9b586e025e8885.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 134
+    "distanceFromEarth": 134,
+    "quantity": 1
   },
   {
     "name": "Antares",
     "coordinates": "RA 16h 29m 24s | Dec -26° 34' 5\"",
     "bio": "Scorpio (♏︎) is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius.",
     "constellation": "Scorpius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/scorpio-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 554
+    "distanceFromEarth": 554,
+    "quantity": 1
   },
   {
     "name": "Cassiopeiator",
     "coordinates": "RA 8h 35m 36s | Dec +32° 53' 18\"",
     "bio": "Gemini is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Gemini",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://www.thoughtco.com/thmb/4GNxtyUN7urQqFEYZoMTiB8-yWw=/933x700/smart/filters:no_upscale()/gemini-5851b2035f9b586e02590789.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 51
+    "distanceFromEarth": 51,
+    "quantity": 1
   },
   {
     "name": "Denebola",
     "coordinates": "RA 12h 49m 4s | Dec +15° 34' 19\"",
     "bio": "Leo /ˈliːoʊ/ is one of the constellations of the zodiac, lying between Cancer the crab to the west and Virgo the maiden to the east. It is located in the Northern celestial hemisphere.",
     "constellation": "Leo",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://media.istockphoto.com/photos/leo-constellation-zodiac-sign-leo-constellation-lines-picture-id638713934?k=20&m=638713934&s=170667a&w=0&h=2KkX0WIw-i5YdUwR-RfdYlirD8mNpZYaOgzASRIgp24=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 36
+    "distanceFromEarth": 36,
+    "quantity": 1
   },
   {
     "name": "Dschubba",
     "coordinates": "RA 16h 0m 20s | Dec -23° 23' 42\"",
     "bio": "Scorpio (♏︎) is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius.",
     "constellation": "Scorpius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/scorpio-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 491
+    "distanceFromEarth": 491,
+    "quantity": 1
   },
   {
     "name": "Fomalhaut",
     "coordinates": "RA 23h 58m 39s | Dec -30° 23' 40\"",
     "bio": "Pisces (♓︎) (/ˈpaɪsiːz/;[2][3] Ancient Greek: Ἰχθύες Ikhthyes) is the twelfth and final astrological sign in the zodiac.",
-    "constellation": "Piscis Austrinus",
-    "price": 999.99,
+    "constellation": "Pisces",
+    "price": 999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/pisces-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 25
+    "distanceFromEarth": 25,
+    "quantity": 1
   },
   {
     "name": "Graffias",
     "coordinates": "RA 16h 5m 26s | Dec -20° 12' 40\"",
     "bio": "Scorpio (♏︎) is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius.",
     "constellation": "Scorpius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/scorpio-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 404
+    "distanceFromEarth": 404,
+    "quantity": 1
   },
   {
     "name": "Hamal",
     "coordinates": "RA 2h 7m 10s | Dec +23° 28' 45\"",
     "bio": "Aries is one of the constellations of the zodiac. It is located in the Northern celestial hemisphere between Pisces to the west and Taurus to the east.",
     "constellation": "Aries",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://cdn.shopify.com/s/files/1/0646/0949/products/DSC02546.jpg?v=1571268373",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 66
+    "distanceFromEarth": 66,
+    "quantity": 1
   },
   {
     "name": "Kaus AusTriangulum Australelis",
     "coordinates": "RA 18h 24m 10s | Dec -34° 37' 55\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 143
+    "distanceFromEarth": 143,
+    "quantity": 1
   },
   {
     "name": "Kaus Borealis",
     "coordinates": "RA 18h 28m 58s | Dec -25° 35' 42\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 78
+    "distanceFromEarth": 78,
+    "quantity": 1
   },
   {
     "name": "Kaus MEridanusdionalis",
     "coordinates": "RA 18h 21m 60s | Dec -30° 10' 19\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 348
+    "distanceFromEarth": 348,
+    "quantity": 1
   },
   {
     "name": "Lacaille 9352",
     "coordinates": "RA 23h 6m 51s | Dec -36° 9' 49\"",
     "bio": "Pisces (♓︎) (/ˈpaɪsiːz/;[2][3] Ancient Greek: Ἰχθύες Ikhthyes) is the twelfth and final astrological sign in the zodiac.",
-    "constellation": "Piscis Austrinus",
-    "price": 999.99,
+    "constellation": "Pisces",
+    "price": 999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/pisces-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 11
+    "distanceFromEarth": 11,
+    "quantity": 1
   },
   {
     "name": "Nash",
     "coordinates": "RA 18h 6m 48s | Dec -30° 35' 33\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 97
+    "distanceFromEarth": 97,
+    "quantity": 1
   },
   {
     "name": "Nunki",
     "coordinates": "RA 19h 55m 16s | Dec -26° 42' 12\"",
     "bio": "Sagittarius (♐︎) (Greek: Τοξότης Toxótēs, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac.",
     "constellation": "Sagittarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/vectors/sagittarius-constellation-vector-id525430193?k=20&m=525430193&s=612x612&w=0&h=oI96xEI2O3R_c2x9rkAgzZ87dZVMyndYczZ_ePjQYdg=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 228
+    "distanceFromEarth": 228,
+    "quantity": 1
   },
   {
     "name": "Pollux",
     "coordinates": "RA 8h 45m 19s | Dec +28° 2' 34\"",
     "bio": "Gemini is one of the constellations of the zodiac and is located in the northern celestial hemisphere.",
     "constellation": "Gemini",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://www.thoughtco.com/thmb/4GNxtyUN7urQqFEYZoMTiB8-yWw=/933x700/smart/filters:no_upscale()/gemini-5851b2035f9b586e02590789.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 34
+    "distanceFromEarth": 34,
+    "quantity": 1
   },
   {
     "name": "Porrima",
     "coordinates": "RA 13h 42m 40s | Dec -1° 33' 2\"",
     "bio": "Virgo is one of the constellations of the zodiac. Its name is Latin for virgin, and its symbol is  (Unicode ♍).",
     "constellation": "Virgo",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/virgo-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 38
+    "distanceFromEarth": 38,
+    "quantity": 1
   },
   {
     "name": "Ras Elased AusTriangulum Australelis",
     "coordinates": "RA 10h 46m 51s | Dec +24° 46' 27\"",
     "bio": "Leo /ˈliːoʊ/ is one of the constellations of the zodiac, lying between Cancer the crab to the west and Virgo the maiden to the east. It is located in the Northern celestial hemisphere.",
     "constellation": "Leo",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/photos/leo-constellation-zodiac-sign-leo-constellation-lines-picture-id638713934?k=20&m=638713934&s=170667a&w=0&h=2KkX0WIw-i5YdUwR-RfdYlirD8mNpZYaOgzASRIgp24=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 247
+    "distanceFromEarth": 247,
+    "quantity": 1
   },
   {
     "name": "Regulus",
     "coordinates": "RA 10h 8m 22s | Dec +12° 58' 2\"",
     "bio": "Leo /ˈliːoʊ/ is one of the constellations of the zodiac, lying between Cancer the crab to the west and Virgo the maiden to the east. It is located in the Northern celestial hemisphere.",
     "constellation": "Leo",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://media.istockphoto.com/photos/leo-constellation-zodiac-sign-leo-constellation-lines-picture-id638713934?k=20&m=638713934&s=170667a&w=0&h=2KkX0WIw-i5YdUwR-RfdYlirD8mNpZYaOgzASRIgp24=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 79
+    "distanceFromEarth": 79,
+    "quantity": 1
   },
   {
     "name": "Sadalmelik",
     "coordinates": "RA 22h 6m 47s | Dec 0° 41' 49\"",
     "bio": "Aquarius (♒︎) is the eleventh astrological sign in the zodiac, originating from the constellation Aquarius. ",
     "constellation": "Aquarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/photos/aquarius-constellation-picture-id155145663?k=20&m=155145663&s=612x612&w=0&h=Y9dKqsOpVs4rkdnzU6Kk6_lLW1Of8f9B1RcjMG9myAE=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 524
+    "distanceFromEarth": 524,
+    "quantity": 1
   },
   {
     "name": "Sadalsuud",
     "coordinates": "RA 22h 32m 34s | Dec -6° 26' 44\"",
     "bio": "Aquarius (♒︎) is the eleventh astrological sign in the zodiac, originating from the constellation Aquarius. ",
     "constellation": "Aquarius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://media.istockphoto.com/photos/aquarius-constellation-picture-id155145663?k=20&m=155145663&s=612x612&w=0&h=Y9dKqsOpVs4rkdnzU6Kk6_lLW1Of8f9B1RcjMG9myAE=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 537
+    "distanceFromEarth": 537,
+    "quantity": 1
   },
   {
     "name": "Sargas",
     "coordinates": "RA 18h 37m 19s | Dec -43° 0' 8\"",
     "bio": "Scorpio (♏︎) is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius.",
     "constellation": "Scorpius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/scorpio-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 300
+    "distanceFromEarth": 300,
+    "quantity": 1
   },
   {
     "name": "Shaula",
     "coordinates": "RA 18h 34m 37s | Dec -37° 54' 46\"",
     "bio": "Scorpio (♏︎) is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius.",
     "constellation": "Scorpius",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/scorpio-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 571
+    "distanceFromEarth": 571,
+    "quantity": 1
   },
   {
     "name": "Sheratan",
     "coordinates": "RA 2h 55m 38s | Dec +21° 48' 29\"",
     "bio": "Aries is one of the constellations of the zodiac. It is located in the Northern celestial hemisphere between Pisces to the west and Taurus to the east.",
     "constellation": "Aries",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://cdn.shopify.com/s/files/1/0646/0949/products/DSC02546.jpg?v=1571268373",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 59
+    "distanceFromEarth": 59,
+    "quantity": 1
   },
   {
     "name": "Spica",
     "coordinates": "RA 13h 25m 12s | Dec -11° 50' 19\"",
     "bio": "Virgo is one of the constellations of the zodiac. Its name is Latin for virgin, and its symbol is  (Unicode ♍).",
     "constellation": "Virgo",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/virgo-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 250
+    "distanceFromEarth": 250,
+    "quantity": 1
   },
   {
     "name": "Vindemiatrix",
     "coordinates": "RA 13h 2m 11s | Dec +11° 58' 33\"",
     "bio": "Virgo is one of the constellations of the zodiac. Its name is Latin for virgin, and its symbol is  (Unicode ♍).",
     "constellation": "Virgo",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://star-name-registry.com/modules/starconstpg/views/img/new/virgo-cons-m.jpg",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 110
+    "distanceFromEarth": 110,
+    "quantity": 1
   },
   {
     "name": "Zosma",
     "coordinates": "RA 11h 14m 6s | Dec +21° 31' 25\"",
     "bio": "Leo /ˈliːoʊ/ is one of the constellations of the zodiac, lying between Cancer the crab to the west and Virgo the maiden to the east. It is located in the Northern celestial hemisphere.",
     "constellation": "Leo",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://media.istockphoto.com/photos/leo-constellation-zodiac-sign-leo-constellation-lines-picture-id638713934?k=20&m=638713934&s=170667a&w=0&h=2KkX0WIw-i5YdUwR-RfdYlirD8mNpZYaOgzASRIgp24=",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 58
+    "distanceFromEarth": 58,
+    "quantity": 1
   },
   {
     "name": "Zubenelgenubi",
     "coordinates": "RA 15h 51m 53s | Dec -16° 57' 30\"",
     "bio": "Libra /ˈliːbrə/ is a constellation of the zodiac and is located in the Southern celestial hemisphere.",
     "constellation": "Libra",
-    "price": 999.99,
+    "price": 999,
     "imageUrl": "https://cdn.shopify.com/s/files/1/0561/8477/products/Libra-Constellation-Cocorrina_2048x2048.jpg?v=1571234410",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 76
+    "distanceFromEarth": 76,
+    "quantity": 1
   },
   {
     "name": "Zubeneschemali",
     "coordinates": "RA 15h 17m 0s | Dec -9° 37' 1\"",
     "bio": "Libra /ˈliːbrə/ is a constellation of the zodiac and is located in the Southern celestial hemisphere.",
     "constellation": "Libra",
-    "price": 9999.99,
+    "price": 9999,
     "imageUrl": "https://cdn.shopify.com/s/files/1/0561/8477/products/Libra-Constellation-Cocorrina_2048x2048.jpg?v=1571234410",
     "isAvaillable": true,
     "userStarName": "Unclaimed",
-    "distanceFromEarth": 185
+    "distanceFromEarth": 185,
+    "quantity": 1
   }
  ]
