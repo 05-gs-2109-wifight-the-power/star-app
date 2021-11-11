@@ -1,6 +1,12 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+// new addition for star JSON data
+const fs = require('fs')
+
+const {db, models: {User, Star, Cart} } = require('../server/db')
+
+// adding data
+const stars = JSON.parse(fs.readFileSync('star-data.json'))
 
 /**
  * seed - this function clears the database, updates tables to
@@ -18,6 +24,19 @@ async function seed() {
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
+
+  await Promise.all(stars.map(star => Star.create({
+    name: star.name,
+    coordinates: star.coordinates,
+    bio: star.bio,
+    constellation: star.constellation,
+    price: star.price,
+    imageUrl: star.imageUrl,
+    isAvailable: star.isAvailable,
+    userStarName: star.userStarName,
+    distanceFromEarth: star.distanceFromEarth
+  })))
+
   return {
     users: {
       cody: users[0],
