@@ -3,24 +3,37 @@
 const db = require("./db");
 
 const User = require("./models/User");
-const Cart = require("./models/Cart");
-
-// fix
+//order-details
+const Order_Details = require("./models/Order_Details");
+//product
 const Star = require("./models/Star");
+//order/cart
+const Order = require("./models/Order");
 
 //associations could go here!
 
-//check spelling of Star...
-//quotes or no quotes on cart
-User.belongsToMany(Star, { through: Cart });
-Star.belongsToMany(User, { through: Cart });
+Order.belongsTo(User);
+User.hasMany(Order);
+
+Star.belongsToMany(Order, { through: Order_Details });
+Order.belongsToMany(Star, { through: Order_Details });
+
+//possible double entry? problem or no?
+Order.belongsTo(User);
+User.hasMany(Order);
+
+Order.hasMany(Order_Details);
+Order_Details.belongsTo(Order);
+
+Star.hasMany(Order_Details);
+Order_Details.belongsTo(Star);
 
 module.exports = {
   db,
   models: {
     User,
-    Cart,
-    //stars/star?
+    Order_Details,
     Star,
+    Order,
   },
 };

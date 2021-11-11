@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
+//Product Table
 const Star = db.define("star", {
   name: {
     type: Sequelize.STRING,

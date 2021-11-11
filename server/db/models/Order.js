@@ -1,15 +1,11 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-module.exports = db.define("cart", {
+const Order = db.define("order", {
   isBought: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  isFavorite: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
 });
 
-
+module.exports = Order;
