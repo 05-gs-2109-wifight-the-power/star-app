@@ -18,20 +18,20 @@ const Star = db.define("star", {
     defaultValue: "No description at this time.",
   },
   constellation: {
-    type: Sequelize.ENUM(
-      "Aries",
+    type: Sequelize.ENUM({
+      values: ["Aries",
       "Taurus",
       "Gemini",
       "Cancer",
       "Leo",
       "Virgo",
       "Libra",
-      "Scorpio",
+      "Scorpius",
       "Sagittarius",
       "Capricorn",
       "Aquarius",
       "Pisces"
-    ),
+      ]}),
     allowNull: false,
     defaultValue: "Aquarius",
     validate: {

@@ -20,6 +20,8 @@ if(process.env.DATABASE_URL){
   };
 }
 
+//update package.json with db name?
 const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`, config)
+  // process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`, config)
+  process.env.DATABASE_URL || `postgres://localhost:5432/star-app`, config)
 module.exports = db
