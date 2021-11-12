@@ -15,14 +15,14 @@ const User = db.define("user", {
   password: {
     type: Sequelize.STRING,
   },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-      isEmail: true,
-    },
-  },
+  // email: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true,
+  //     isEmail: true,
+  //   },
+  // },
   isAdmin: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
