@@ -3,6 +3,7 @@ const {
   models: { Star },
 } = require("../db");
 const Order_Details = require("../db/models/Order_Details");
+const { requireToken, isAdmin } = require('./gateKeepingMiddleware');
 
 module.exports = starsRouter;
 
@@ -29,7 +30,7 @@ starsRouter.get("/:starId", async (req, res, next) => {
 });
 
 // POST /api/stars (admin)
-starsRouter.post("/", async (req, res, next) => {
+starsRouter.post("/", requireToken, isAdmin, async (req, res, next) => {
   try {
     const star = await Star.create({
       name: req.body.name,
@@ -40,11 +41,13 @@ starsRouter.post("/", async (req, res, next) => {
       imageUrl: req.body.imageUrl,
       distanceFromEarth: req.body.distanceFromEarth,
     });
+    res.json(star)
   } catch (e) {
     next(e);
   }
 });
 
+// UPDATE /api/stars/:starId
 starsRouter.put("/:starId", async (req, res, next) => {
   try {
     const star = await Star.findByPk(req.params.starId);
@@ -54,7 +57,7 @@ starsRouter.put("/:starId", async (req, res, next) => {
   }
 });
 
-// DELETE /api/stars/starId
+// DELETE /api/stars/:starId
 starsRouter.delete("/:starId", async (req, res, next) => {
   try {
     const star = await Star.findByPk(req.params.starId);
