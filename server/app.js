@@ -4,6 +4,14 @@ const morgan = require('morgan')
 const app = express()
 module.exports = app
 
+if (process.env.NODE_ENV !== 'development') {
+  require('../secrets')
+  //console.log('log environment variables', process.env)
+}
+
+const SECRET_API_KEY = process.env.SECRET_API_KEY
+
+
 // logging middleware
 app.use(morgan('dev'))
 
