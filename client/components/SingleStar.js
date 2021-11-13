@@ -13,6 +13,7 @@ export class SingleStar extends Component {
 
   render() {
     const { star } = this.props;
+    console.log("Single star", star);
     return (
       <div>
         <div>
