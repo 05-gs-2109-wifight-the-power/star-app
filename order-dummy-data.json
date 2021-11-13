@@ -1,0 +1,44 @@
+
+
+[
+  {
+    "userId": 5,
+    "isBought": true
+  },
+  {
+    "userId": 4,
+    "isBought": false
+  },
+  {
+    "userId": 3,
+    "isBought": false
+  },
+  {
+    "userId": 2,
+    "isBought": true
+  },
+  {
+    "userId": 1,
+    "isBought": true
+  },
+  {
+    "userId": 5,
+    "isBought": false
+  },
+  {
+    "userId": 4,
+    "isBought": false
+  },
+  {
+    "userId": 3,
+    "isBought": false
+  },
+  {
+    "userId": 2,
+    "isBought": true
+  },
+  {
+    "userId": 1,
+    "isBought": true
+  }
+ ]

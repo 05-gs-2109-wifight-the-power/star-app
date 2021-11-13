@@ -11,5 +11,6 @@ module.exports = db.define("Order_Details", {
   },
   totalPrice: {
     type: Sequelize.INTEGER,
+    defaultValue: 0
   },
 });

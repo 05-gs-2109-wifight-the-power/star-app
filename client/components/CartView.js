@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { fetchCartStars, addToCart, removeFromCart } from "../store/shopping"
+
 class CartView extends Component {
   constructor(props) {
     super(props);
@@ -9,9 +11,10 @@ class CartView extends Component {
 
   componentDidMount() {
     // this.props.cartProducts
+    this.props.fetchCartStars();
   }
   /*
-  onSubmit: Should be able to 
+  onSubmit: Should be able to
   addStar to the Order_Details
   if is favorite or not;
   change isBought to TRUE
@@ -22,6 +25,9 @@ class CartView extends Component {
   }
 
   render() {
+
+    const {stars} = this.props;
+
     return (
       <div>
         <div></div>
@@ -31,6 +37,17 @@ class CartView extends Component {
     );
   }
 }
+
+const mapState = (state) => ({
+  stars: state.stars
+})
+
+const mapDispatch = ({dispatch}) => ({
+  fetchCartStars: () => dispatch(fetchCartStars()),
+  addToCart: (star) => dispatch(addToCart(star)),
+  removeFromCart: (star) => dispatch(removeFromCart(star))
+
+})
 
 export default connect(mapState, mapDispatch)(CartView);
 /**
@@ -48,7 +65,7 @@ export default connect(mapState, mapDispatch)(CartView);
    star: {}
    cart: [{..}, {..}]
  }
- 
+
  export const _get_robots = (cartId, history) => {
    return async (dispatch) => {
      try {
