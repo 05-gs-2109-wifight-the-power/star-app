@@ -3,18 +3,7 @@ const {
   db,
   models: { Star },
 } = require("../index");
-const jwt = require("jsonwebtoken");
-const seed = require("../../../script/seed");
-import AllStars, {
-  AllStars as UnconnectedAllStars,
-} from "../../../client/components/AllStars";
-import Routes from "../../../client/Routes";
-import React from "react";
-import { mount } from "enzyme";
-// import mockAxios from "../mock-axios";
-import sinon from "sinon";
-
-xdescribe("Star model", () => {
+describe("Star model", () => {
   describe("Sequelize", () => {
     before(() => {
       console.log(`Look at the server/db/Star.js`);
