@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchStars } from '../store/stars'
 
 class AllStars extends Component {
@@ -21,13 +22,13 @@ class AllStars extends Component {
           {this.props.stars.map(star => (
 
             <article className="card" key={star.id}>
-              <a href="">
+              <Link to={`stars/${star.id}`}>
                 <img className="star-img" src={star.imageUrl} />
                 <div className="card-content">
                   <h1 className="star-name">{star.name}</h1>
                   <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
                 </div>
-              </a>
+              </Link>
             </article>
           ))}
         </section>
