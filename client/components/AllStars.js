@@ -11,15 +11,22 @@ class AllStars extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.stars.map(star => (
-          <div key={star.id}>
-            <img src={star.imageUrl} />
-            <h1>{star.name}</h1>
-            <h5>{star.price}</h5>
-          </div>
-        ))}
-      </div>
+      <main class="main-area">
+        <section class="cards">
+          {this.props.stars.map(star => (
+
+            <article class="card" key={star.id}>
+              <a href="">
+                <img class="star-img" src={star.imageUrl} />
+                <div class="card-content">
+                  <h1 class="star-name">{star.name}</h1>
+                  <h3 class="star-price">{star.price}</h3>
+                </div>
+              </a>
+            </article>
+          ))}
+        </section>
+      </main>
     )
   }
 }
