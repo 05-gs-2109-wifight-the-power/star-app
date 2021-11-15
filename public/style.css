@@ -19,3 +19,59 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* MAIN ALL STAR STORE VIEW -- START */
+
+.main-area {
+  padding: 12em;
+  padding-top: 80px;
+}
+
+.star-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  margin-bottom: 2em;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.star-name {
+  font-weight: 300;
+  margin: 5px 0 5px 0;
+  color: #3A3A3A;
+}
+
+.star-price {
+  font-weight: 600;
+  color: #3A3A3A;
+  margin: 5px 0 70px 0;
+  font-size: 18px;
+}
+
+.card-content {
+  padding: .4em;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  flex: 0 1 28%;
+}
+
+/* MAIN ALL STAR STORE VIEW -- END */
