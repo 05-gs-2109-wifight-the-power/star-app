@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { me } from "./store";
 import AllStars from "./components/AllStars";
 import SingleStar from "./components/SingleStar";
+import Cart from "./components/Cart";
 
 /**
  * COMPONENT
@@ -27,12 +28,14 @@ class Routes extends Component {
             <Route path="/stars" component={AllStars} />
             <Redirect to="/stars" />
             <Route path="/stars/:starId" component={SingleStar} />
+            <Route path="/cart" component={Cart}/>
           </Switch>
         ) : (
           <Switch>
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/cart" component={Cart} />
           </Switch>
         )}
       </div>

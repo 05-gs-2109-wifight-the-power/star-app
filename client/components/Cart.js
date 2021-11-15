@@ -5,7 +5,6 @@ import { fetchStars } from '../store/stars'
 
 
 
-
 class Cart extends Component {
 
   constructor(props) {
@@ -22,15 +21,13 @@ class Cart extends Component {
   }
   render() {
 
-
-
     console.log('what are my props? ', this.props.cartStars)
     console.log('state?', this.state)
 
     return (
       <div>
       {console.log('props inside return', this.props.cartStars)}
-        {this.props.cartStars.map(star => (
+        {this.state.cartStars.map(star => (
           <div key={star.id}>
           {console.log('current star', star)}
             <img src={star.imageUrl} />

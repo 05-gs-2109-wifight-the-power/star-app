@@ -9,7 +9,7 @@ const { requireToken, isAdmin } = require("./gateKeepingMiddleware");
 
 // requireToken creates a block in the browser but not in Postman.
 // should also be isAdmin to view api routes
-cartRouter.get ("/", requireToken, isAdmin, async (req, res, next) => {
+cartRouter.get ("/", requireToken, async (req, res, next) => {
   try {
     console.log('req.params', req.user)
     const order = await Order.findAll({
