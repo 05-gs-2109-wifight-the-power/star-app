@@ -31,9 +31,7 @@ class Routes extends Component {
             {/* <Redirect to="/stars" /> */}
 
             <Route path="/stars/:id" component={SingleStar} />
-
             <Route path="*" component={NotFound} />
-
           </Switch>
         ) : (
           <Switch>
