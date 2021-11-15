@@ -7,20 +7,25 @@ class AllStars extends Component {
   componentDidMount() {
     this.props.fetchStars();
     console.log(this.props)
+    this.currencyFormat = this.currencyFormat.bind(this);
+  }
+
+  currencyFormat(num) {
+    return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
 
   render() {
     return (
-      <main class="main-area">
-        <section class="cards">
+      <main className="main-area">
+        <section className="cards">
           {this.props.stars.map(star => (
 
-            <article class="card" key={star.id}>
+            <article className="card" key={star.id}>
               <a href="">
-                <img class="star-img" src={star.imageUrl} />
-                <div class="card-content">
-                  <h1 class="star-name">{star.name}</h1>
-                  <h3 class="star-price">{star.price}</h3>
+                <img className="star-img" src={star.imageUrl} />
+                <div className="card-content">
+                  <h1 className="star-name">{star.name}</h1>
+                  <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
                 </div>
               </a>
             </article>
