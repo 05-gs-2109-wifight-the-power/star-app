@@ -14,7 +14,7 @@ starsRouter.get("/", async (req, res, next) => {
     const stars = await Star.findAll();
     // console.log(User.prototype.addOrder(1));
 
-    // console.log("these are our stars:", stars);
+    console.log("these are our stars:", stars);
     res.json(stars);
   } catch (e) {
     next(e);
@@ -22,9 +22,10 @@ starsRouter.get("/", async (req, res, next) => {
 });
 
 //GET /api/stars/starId
-starsRouter.get("/:starId", async (req, res, next) => {
+starsRouter.get("/:id", async (req, res, next) => {
   try {
-    const star = await Star.findByPk(req.params.starId);
+    const id = Number(req.params.id);
+    const star = await Star.findByPk(id);
     console.log(star);
     res.json(star);
   } catch (e) {
