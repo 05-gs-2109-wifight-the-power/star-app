@@ -6,6 +6,7 @@ import EditStar from "./EditStar";
 class SingleStar extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
+    console.log(this.props.match.url);
     this.props.fetchSingleStar(id);
   }
 
