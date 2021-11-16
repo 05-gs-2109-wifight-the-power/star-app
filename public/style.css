@@ -111,7 +111,7 @@ form div {
 
 /* ------- Sign in form ----------- */
 
-#sign-in {
+.hidden {
   display: none;
 }
 
