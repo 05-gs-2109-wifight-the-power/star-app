@@ -9,6 +9,8 @@ import SingleStar from "./components/SingleStarView";
 import Welcome from "./components/Welcome";
 import NotFound from "./components/NotFound";
 
+import Cart from "./components/Cart"
+
 /**
  * COMPONENT
  */
@@ -31,6 +33,7 @@ class Routes extends Component {
             {/* <Redirect to="/stars" /> */}
 
             <Route path="/stars/:id" component={SingleStar} />
+            <Route path="/cart" component={Cart} />
             <Route path="*" component={NotFound} />
           </Switch>
         ) : (
@@ -40,7 +43,10 @@ class Routes extends Component {
             <Route path="/stars/:id" component={SingleStar} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/cart" component={Cart} />
             <Route path="*" component={NotFound} />
+
+
           </Switch>
         )}
       </div>
