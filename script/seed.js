@@ -11,6 +11,14 @@ const {
 // adding data
 const stars = JSON.parse(fs.readFileSync("star-data.json"));
 
+const userDummies = JSON.parse(fs.readFileSync("user-dummy-data.json"))
+
+const orderDummies = JSON.parse(fs.readFileSync("order-dummy-data.json"))
+
+
+const orderDetailsDummies = JSON.parse(fs.readFileSync("order-details-dummy-data.json"));
+
+console.log(userDummies)
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -45,12 +53,38 @@ async function seed() {
     )
   );
 
+  const userData = await Promise.all(userDummies.map((user) =>
+      User.create({
+        username: user.username,
+        password: user.password,
+        isAdmin: user.isAdmin
+      })
+  ));
+
+  const orderData = await Promise.all(orderDummies.map((order) =>
+    Order.create({
+      userId: order.userId,
+      isBought: order.isBought
+    })))
+
+  const orderDetailsData = await Promise.all(orderDetailsDummies.map((order) =>
+    Order_Details.create({
+      isFavorite: order.isFavorite,
+      quantity: order.quantity,
+      totalPrice: order.totalPrice,
+      starId: order.starId,
+      orderId: order.orderId
+    })
+  ))
   return {
     users: {
       cody: users[0],
       murphy: users[1],
     },
     starData,
+    userData,
+    orderData,
+    orderDetailsData
   };
 }
 
