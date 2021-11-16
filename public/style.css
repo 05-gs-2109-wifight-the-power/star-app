@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a {
@@ -84,25 +85,32 @@ form div {
 .ntFound-content {
   text-align: center;
 }
-
-.notFound {
-  color: #fff;
-  font-size: 12em;
-  font-weight: bold;
-  font-family: Helvetica;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
-    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0), 0 0 5px rgba(0, 0, 0),
-    0 1px 3px rgba(0, 0, 0), 0 3px 5px rgba(0, 0, 0),
-    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
-    0 20px 20px rgba(0, 0, 0, 0.15);
+.not-found-header {
+  font-weight: 400;
+  padding-top: 30%;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+.not-found-description {
+  font-weight: 100;
+  margin: 0;
+  font-size: 20px;
 }
 
-.notFound {
-  text-align: center;
+.backLink {
+  color: black;
+  font-weight:200;
+  font-size: 20px;
+  padding-top: 10%;
+  padding-bottom: 15%;
 }
 
 .backgroundImg {
-  background-image: url("not-found-background.png");
+  background-image: url("images/Not-found-background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 /*-------NOT FOUND 404 STYLE - END ----------*/
