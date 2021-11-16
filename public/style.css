@@ -108,3 +108,11 @@ form div {
 }
 
 /*-------NOT FOUND 404 STYLE - END ----------*/
+
+/* ------- Sign in form ----------- */
+
+#sign-in {
+  display: none;
+}
+
+/* ------- Sign in form - END ----------- */
