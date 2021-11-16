@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSingleStar } from "../store/singleStar";
+import EditStar from "./EditStar";
 
-export class SingleStar extends Component {
-  constructor(props) {
-    super(props);
-    this.id = this.props.match.params.starsId;
-  }
+class SingleStar extends Component {
   componentDidMount() {
-    this.props.fetchSingleStar(this.id);
+    const { id } = this.props.match.params;
+    console.log(this.props.match.url);
+    this.props.fetchSingleStar(id);
   }
 
   render() {
@@ -22,14 +21,16 @@ export class SingleStar extends Component {
           <h5>Distance To Earth {star.distanceFromEarth}</h5>
           <h5>Coordinates {star.coordinates}</h5>
         </div>
+        <div>
+          <EditStar />
+        </div>
       </div>
     );
   }
 }
 
-//extra comma???
-const mapState = ({ star }) => ({
-  star,
+const mapState = (state) => ({
+  star: state.star,
 });
 
 const mapDispatch = (dispatch) => ({

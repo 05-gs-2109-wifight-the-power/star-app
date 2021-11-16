@@ -5,7 +5,9 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import { me } from "./store";
 import AllStars from "./components/AllStars";
-import SingleStar from "./components/SingleStar";
+import SingleStar from "./components/SingleStarView";
+import Welcome from "./components/Welcome";
+import NotFound from "./components/NotFound";
 
 /**
  * COMPONENT
@@ -24,15 +26,21 @@ class Routes extends Component {
           <Switch>
             {/* <Route path="/home" component={Home} /> */}
             {/* <Redirect to="/home" /> */}
-            <Route path="/stars" component={AllStars} />
-            <Redirect to="/stars" />
-            <Route path="/stars/:starId" component={SingleStar} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/stars" component={AllStars} />
+            {/* <Redirect to="/stars" /> */}
+
+            <Route path="/stars/:id" component={SingleStar} />
+            <Route path="*" component={NotFound} />
           </Switch>
         ) : (
           <Switch>
-            <Route path="/" exact component={Login} />
+            <Route exact path="/" exact component={Welcome} />
+            <Route exact path="/stars" component={AllStars} />
+            <Route path="/stars/:id" component={SingleStar} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="*" component={NotFound} />
           </Switch>
         )}
       </div>
