@@ -1,13 +1,11 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
-import Home from "./components/Home";
+import { withRouter, Route, Switch } from "react-router-dom";
 import { me } from "./store";
 import AllStars from "./components/AllStars";
 import SingleStar from "./components/SingleStarView";
-import Welcome from "./components/Welcome";
 import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
 
 /**
  * COMPONENT
@@ -22,11 +20,9 @@ class Routes extends Component {
 
     return (
       <div>
+        <Navbar />
         {isLoggedIn ? (
           <Switch>
-            {/* <Route path="/home" component={Home} /> */}
-            {/* <Redirect to="/home" /> */}
-            <Route exact path="/" component={Welcome} />
             <Route exact path="/stars" component={AllStars} />
             {/* <Redirect to="/stars" /> */}
 
@@ -35,11 +31,8 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route exact path="/" exact component={Welcome} />
             <Route exact path="/stars" component={AllStars} />
             <Route path="/stars/:id" component={SingleStar} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
             <Route path="*" component={NotFound} />
           </Switch>
         )}

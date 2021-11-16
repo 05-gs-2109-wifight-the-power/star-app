@@ -100,11 +100,17 @@ form div {
 .notFound {
   text-align: center;
 }
-/* .backgroundImg {
-  background-image: url("https://i.pinimg.com/736x/09/60/dd/0960dd6c10f700fe4cda79a54112da38.jpg");
-} or */
+
 .backgroundImg {
   background-image: url("not-found-background.png");
 }
 
 /*-------NOT FOUND 404 STYLE - END ----------*/
+
+/* ------- Sign in form ----------- */
+
+.hidden {
+  display: none;
+}
+
+/* ------- Sign in form - END ----------- */
