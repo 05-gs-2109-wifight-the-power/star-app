@@ -9,9 +9,9 @@ class Cart extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      cartStars: []
-    }
+    // this.state = {
+    //   cartStars: []
+    // }
   }
 
   componentDidMount() {
@@ -24,18 +24,23 @@ class Cart extends Component {
     console.log('what are my props? ', this.props.cartStars)
     console.log('state?', this.state)
 
+
     return (
       <div>
       {console.log('props inside return', this.props.cartStars)}
-        {this.state.cartStars.map(star => (
+      {console.log('typeof this.props.cartStars[0]', typeof this.props.cartStars[0])}
+     {console.log('starId:', typeof this.props.cartStars)}
+        {
+          this.props.cartStars.length > 0 ?
+          this.props.cartStars.map(star => (
           <div key={star.id}>
           {console.log('current star', star)}
             <img src={star.imageUrl} />
-            <h1>{star.name}</h1>
-            <h5>{star.price}</h5>
+            <h1>{star.starId}</h1>
+            <h5>{star.totalPrice}</h5>
 
           </div>
-        ))}
+        )) : <div>{console.log('add to cart')} Add to the cart!!!</div>}
       </div>
     )
   }

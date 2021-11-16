@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStars } from '../store/stars'
+import { addToCart } from '../store/shopping'
 
 class AllStars extends Component {
 
@@ -27,6 +28,7 @@ class AllStars extends Component {
                 <div className="card-content">
                   <h1 className="star-name">{star.name}</h1>
                   <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
+                  <button type="submit" onClick = {() => this.props.addToCart(star)}>Add To Cart</button>
                 </div>
               </Link>
             </article>
@@ -42,7 +44,8 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  fetchStars: () => dispatch(fetchStars())
+  fetchStars: () => dispatch(fetchStars()),
+  addToCart: (star) => dispatch(addToCart(star))
 })
 
 export default connect(mapState, mapDispatch)(AllStars);

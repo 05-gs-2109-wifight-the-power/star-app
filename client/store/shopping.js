@@ -46,6 +46,15 @@ export const addToCart = (star) => {
 }
 
 
+// potential local storage function
+
+// export const addToCart = (star) => {
+//   return (dispatch) => {
+
+//   }
+// }
+
+
 export const removeFromCart = (starId) => {
   return async (dispatch) => {
     try {
