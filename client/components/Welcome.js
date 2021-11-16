@@ -7,7 +7,6 @@ const Welcome = () => {
       <h1>ASTRO MART</h1>
       <h5>Example website description</h5>
       <Link to="/stars">Get started</Link>
-      {/* <button type="button">Get started</button> */}
     </div>
   );
 };

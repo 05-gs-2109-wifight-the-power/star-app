@@ -24,8 +24,6 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route exact path="/stars" component={AllStars} />
-            {/* <Redirect to="/stars" /> */}
-
             <Route path="/stars/:id" component={SingleStar} />
             <Route path="*" component={NotFound} />
           </Switch>
