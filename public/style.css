@@ -171,6 +171,10 @@ form div {
   background-color: white;
 }
 
+.welcome-bttn:hover {
+  background-color: black;
+}
+
 .site-description {
   position: relative;
   top: 470px;
@@ -180,6 +184,11 @@ form div {
 
 .bttn-text {
   color: black;
+  font-weight: bold;
+}
+
+.welcome-bttn:hover .bttn-text {
+  color: white;
   font-weight: bold;
 }
 /* ------- Welcome Page - END ----------- */
