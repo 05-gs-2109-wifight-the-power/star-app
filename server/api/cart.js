@@ -11,8 +11,7 @@ const { requireToken, isAdmin } = require("./gateKeepingMiddleware");
 // should also be isAdmin to view api routes
 cartRouter.get("/:userId", async (req, res, next) => {
   try {
-
-    console.log('userId in /cart/userId', req.params.userId)
+    // console.log("userId in /cart/userId", req.params.userId);
     // console.log("req.params", req.user);
     const orders = await Order.findAll({
       where: {
@@ -24,14 +23,10 @@ cartRouter.get("/:userId", async (req, res, next) => {
         {
           model: Order_Details,
         },
+        { model: Star },
       ],
     });
-
-    // const currentCart = await Order_Details.findAll({
-    //   where: {
-    //     orderId: order[0].id,
-    //   },
-    // });
+    console.log(orders.dataValues);
     res.send(orders);
   } catch (e) {
     next(e);
@@ -74,31 +69,28 @@ cartRouter.get(
         ],
       });
 
-      const star = await Star.findByPk(req.params.starId)
+      const star = await Star.findByPk(req.params.starId);
 
       if (order) {
-
-        //await Order_Details.setStar(star)
         await Order_Details.create({
           orderId: order.id,
           starId: req.params.starId,
           quantity: star.quantity,
-          totalPrice: star.price
-        })
+          totalPrice: star.price,
+        });
 
         res.json(order);
       } else {
-        const newOrder = await Order.create(
-          {
-            userId: req.params.userId
-          });
+        const newOrder = await Order.create({
+          userId: req.params.userId,
+        });
 
         await Order_Details.create({
           orderId: newOrder.id,
           starId: req.params.starId,
           quantity: star.quantity,
-          totalPrice: star.price
-        })
+          totalPrice: star.price,
+        });
         res.json(newOrder);
       }
     } catch (err) {
@@ -107,44 +99,10 @@ cartRouter.get(
   }
 );
 
-// cartRouter.post("/", async (req, res, next) => {
-//   try {
-//     console.log("inCartRouter.post: req.body.id:", req.body);
-//     // This will check if the Order/Cart already exist for this user...
-
-//     // this is currently hard-coded because requireToken always throws an error!
-//     const isCurrentCart = await Order.findAll({
-//       where: {
-//         userId: 6,
-//         isBought: false,
-//       },
-//     });
-
-//     if (isCurrentCart.length === 0) {
-//       const order = await Order.create({
-//         userId: 6,
-//       });
-
-//       const orderDetail = await Order_Details.create({
-//         orderId: order.id,
-//         starId: req.body.id,
-//       });
-
-//       res.send(orderDetail);
-//     } else {
-//       const newRow = await Order_Details.create({
-//         starId: req.body.id,
-//         orderId: isCurrentCart[0].id,
-//         quantity: 1,
-//         // this needs to increment
-//         totalPrice: req.body.price,
-//       });
-//       res.send(newRow);
-//     }
-//   } catch (e) {
-//     next(e);
-//   }
-// });
-
-// still need cartRouter.delete
-// cartRouter.put
+cartRouter.delete("/:orderId", async (req, res, next) => {
+  try {
+    const order = await Order_Details.findByPk();
+  } catch (e) {
+    next(e);
+  }
+});

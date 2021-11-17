@@ -53,10 +53,10 @@ export const addToCart = (starId, userId, history) => {
 //   }
 // }
 
-export const removeFromCart = (starId) => {
+export const removeFromCart = (orderId) => {
   return async (dispatch) => {
     try {
-      const { data: star } = await axios.delete(`/api/stars/cart/${starId}`);
+      const { data: star } = await axios.delete(`/api/cart/${orderId}`);
       dispatch(_removeFromCart(star));
     } catch (e) {
       console.log("Error: cannot delete from cart");
@@ -78,7 +78,7 @@ export const fetchCartStars = (userId) => {
 
 const initialState = {
   stars: [],
-  orders: [],
+  // orders: [],
 };
 
 export default function cartReducer(state = initialState, action) {
@@ -91,7 +91,7 @@ export default function cartReducer(state = initialState, action) {
         stars: state.stars.filter((star) => star.id !== action.star.id),
       };
     case FETCH_CART_STARS:
-      return { ...state, orders: [...state.orders, action.orders] };
+      return action.orders;
     default:
       return state;
   }
