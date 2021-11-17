@@ -42,13 +42,13 @@ class AllStars extends Component {
                   </div>
                 </div>
               </Link>
-              
+
               <div className="add-cart-bttn-wrapper">
-                <button type="submit" onClick={() => this.handleCart(star.id)}>
+                <button className="add-cart-bttn" type="submit" onClick={() => this.handleCart(star.id)}>
                     Add To Cart
                 </button>
               </div>
-            
+
             </article>
           ))}
         </section>
