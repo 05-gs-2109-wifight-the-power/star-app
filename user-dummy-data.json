@@ -1,0 +1,52 @@
+[
+  {
+    "username": "Marg",
+    "password": "abc",
+    "isAdmin": true
+  },
+  {
+    "username": "Gi",
+    "password": "abc",
+    "isAdmin": true
+  },
+  {
+    "username": "Jordan",
+    "password": "abc",
+    "isAdmin": true
+  },
+  {
+    "username": "Sejung",
+    "password": "abc",
+    "isAdmin": true
+  },
+  {
+    "username": "John",
+    "password": "abc",
+    "isAdmin": false
+  },
+  {
+    "username": "Paul",
+    "password": "abc",
+    "isAdmin": false
+  },
+  {
+    "username": "George",
+    "password": "abc",
+    "isAdmin": false
+  },
+  {
+    "username": "Ringo",
+    "password": "abc",
+    "isAdmin": false
+  },
+  {
+    "username": "Bob",
+    "password": "abc",
+    "isAdmin": false
+  },
+  {
+    "username": "Chuck",
+    "password": "abc",
+    "isAdmin": false
+  }
+ ]

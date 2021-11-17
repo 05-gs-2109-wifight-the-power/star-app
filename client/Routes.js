@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
-import Home from "./components/Home";
+import { withRouter, Route, Switch } from "react-router-dom";
 import { me } from "./store";
 import AllStars from "./components/AllStars";
-import SingleStar from "./components/SingleStar";
+
+import SingleStar from "./components/SingleStarView";
 import Welcome from "./components/Welcome";
 import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
 
 /**
  * COMPONENT
@@ -45,7 +45,6 @@ class Routes extends Component {
 			</div>
 		);
 	}
-}
 
 /**
  * CONTAINER

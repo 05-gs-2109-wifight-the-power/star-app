@@ -14,10 +14,12 @@ describe("User routes", () => {
     await seed();
   });
 
+
   describe("/api/users/", () => {
     it("GET /api/users", async () => {
       const res = await request(app).get("/api/users").expect(200);
       expect(res.body).to.be.an("array");
+
       expect(res.body.length).to.equal(2);
     });
   }); // end describe('/api/users')

@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
     <div>
-      <h1>WEBSITE NAME</h1>
+      <h1>ASTRO MART</h1>
       <h5>Example website description</h5>
-      <Link to='/stars'>Get started</Link>
-      {/* <button type="button">Get started</button> */}
+      <Link to="/stars">Get started</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;

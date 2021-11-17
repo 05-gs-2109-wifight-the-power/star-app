@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a {
@@ -19,3 +20,105 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* MAIN ALL STAR STORE VIEW -- START */
+
+.main-area {
+  padding: 12em;
+  padding-top: 80px;
+}
+
+.star-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  margin-bottom: 2em;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.star-name {
+  font-weight: 300;
+  margin: 5px 0 5px 0;
+  color: #3a3a3a;
+}
+
+.star-price {
+  font-weight: 600;
+  color: #3a3a3a;
+  margin: 5px 0 70px 0;
+  font-size: 18px;
+}
+
+.card-content {
+  padding: 0.4em;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  flex: 0 1 28%;
+}
+
+/* MAIN ALL STAR STORE VIEW -- END */
+
+/*-------NOT FOUND 404 STYLE-----------*/
+.backLink {
+  margin-top: 20px;
+}
+
+.ntFound-content {
+  text-align: center;
+}
+.not-found-header {
+  font-weight: 400;
+  padding-top: 30%;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+.not-found-description {
+  font-weight: 100;
+  margin: 0;
+  font-size: 20px;
+}
+
+.backLink {
+  color: black;
+  font-weight:200;
+  font-size: 20px;
+  padding-top: 10%;
+  padding-bottom: 15%;
+}
+
+.backgroundImg {
+  background-image: url("images/Not-found-background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/*-------NOT FOUND 404 STYLE - END ----------*/
+
+/* ------- Sign in form ----------- */
+
+.hidden {
+  display: none;
+}
+
+/* ------- Sign in form - END ----------- */
