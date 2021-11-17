@@ -1,5 +1,6 @@
 const cartRouter = require("express").Router();
 module.exports = cartRouter;
+//const { addToCart } = require("../../client/store/shopping");
 const {
   models: { Star, Order, Order_Details, User },
 } = require("../db");
@@ -72,10 +73,27 @@ cartRouter.get(
           },
         ],
       });
+
       if (order) {
+
+        //const star = await Star.findByPk(req.params.starId)
+        //await Order_Details.setStar(star)
+        await Order_Details.create({
+          orderId: order.id,
+          starId: req.params.starId
+        })
+
         res.json(order);
       } else {
-        const newOrder = await Order.create({userId: req.params.userId});
+        const newOrder = await Order.create(
+          {
+            userId: req.params.userId
+          });
+
+        await Order_Details.create({
+          orderId: newOrder.id,
+          starId: req.params.starId
+        })
         res.json(newOrder);
       }
     } catch (err) {
