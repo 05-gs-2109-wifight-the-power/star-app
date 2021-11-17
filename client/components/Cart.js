@@ -1,14 +1,11 @@
-import React, { Component, useEffect, useState } from 'react';
-import { removeFromCart, fetchCartStars } from '../store/shopping'
-import { connect } from 'react-redux'
-import { fetchStars } from '../store/stars'
-
-
+import React, { Component, useEffect, useState } from "react";
+import { removeFromCart, fetchCartStars } from "../store/shopping";
+import { connect } from "react-redux";
+import { fetchStars } from "../store/stars";
 
 class Cart extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     // this.state = {
     //   cartStars: []
     // }
@@ -17,45 +14,46 @@ class Cart extends Component {
   componentDidMount() {
     this.props.fetchCartStars();
 
-    console.log('current state', this.state)
+    console.log("current state", this.state);
   }
   render() {
-
-    console.log('what are my props? ', this.props.cartStars)
-    console.log('state?', this.state)
-
+    console.log("what are my props? ", this.props.cartStars);
+    console.log("state?", this.state);
 
     return (
       <div>
-      {console.log('props inside return', this.props.cartStars)}
-      {console.log('typeof this.props.cartStars[0]', typeof this.props.cartStars[0])}
-     {console.log('starId:', typeof this.props.cartStars)}
-        {
-          this.props.cartStars.length > 0 ?
-          this.props.cartStars.map(star => (
-          <div key={star.id}>
-          {console.log('current star', star)}
-            <img src={star.imageUrl} />
-            <h1>{star.starId}</h1>
-            <h5>{star.totalPrice}</h5>
-
-          </div>
-        )) : <div>{console.log('add to cart')} Add to the cart!!!</div>}
+        {console.log("props inside return", this.props.cartStars)}
+        {console.log(
+          "typeof this.props.cartStars[0]",
+          typeof this.props.cartStars[0]
+        )}
+        {console.log("starId:", typeof this.props.cartStars)}
+        {this.props.cartStars.length > 0 ? (
+          this.props.cartStars.map((star) => (
+            <div key={star.id}>
+              {console.log("current star", star)}
+              <img src={star.imageUrl} />
+              <h1>{star.starId}</h1>
+              <h5>{star.totalPrice}</h5>
+            </div>
+          ))
+        ) : (
+          <div>{console.log("add to cart")} Add to the cart!!!</div>
+        )}
       </div>
-    )
+    );
   }
 }
 
 const mapState = (state) => ({
-  cartStars: state.cartStars
-})
+  cartStars: state.cartStars,
+});
 
 const mapDispatch = (dispatch) => ({
-  fetchCartStars: () => dispatch(fetchCartStars())
-})
+  fetchCartStars: () => dispatch(fetchCartStars()),
+});
 
 export default connect(mapState, mapDispatch)(Cart);
-
 
 // const CartApp = () => {
 
@@ -64,7 +62,6 @@ export default connect(mapState, mapDispatch)(Cart);
 //   let [cart, setCart] = useState([])
 
 //   let myCart = localStorage.getItem("cart");
-
 
 //   const addStar = (star) => {
 //     // copy cart state so existing state is not overwritten
@@ -90,7 +87,6 @@ export default connect(mapState, mapDispatch)(Cart);
 //     let storeCart = JSON.stringify(cartCopy);
 //     localStorage.setItem("cart", storeCart)
 //   };
-
 
 //   const updateStar = (starId, nickname) => {
 
@@ -121,8 +117,5 @@ export default connect(mapState, mapDispatch)(Cart);
 //     {getStars()}
 //   </div>
 // }
-
-
-
 
 // export default CartApp
