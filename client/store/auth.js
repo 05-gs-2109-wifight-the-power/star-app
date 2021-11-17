@@ -24,8 +24,9 @@ export const me = (history) => async (dispatch) => {
         authorization: token,
       },
     });
-    // history.push("/stars");
-    return dispatch(setAuth(res.data));
+
+    dispatch(setAuth(res.data));
+    history.push("/");
   }
 };
 

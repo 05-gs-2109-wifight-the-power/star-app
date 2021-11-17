@@ -6,31 +6,46 @@ import { fetchStars } from "../store/stars";
 class Cart extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   orders: [],
-    // };
+    this.state = {
+      orders: [],
+    };
   }
 
   componentDidMount() {
-    // console.log("PROPS ON DIDMOUNT", this.props);
     const userId = this.props.auth.id;
-    console.log('userId in DidMount:', userId)
-    // this.props.fetchCartStars(userId);
-    console.log("current state", this.state);
+    console.log("userId in DidMount:", userId);
+    this.props.fetchCartStars(userId);
+    // this.setState({ orders: this.props.cartStars.stars });
+    // console.log("current state", this.state);
   }
   render() {
-    console.log("Props=>>>", this.props);
-    console.log("STATE", this.state);
-    console.log("this.state.cartSTars", this.props.cartStars)
-    // console.log("what are my props? ", this.props.cartStars);
-    // console.log("state?", this.state);
-    // console.log("YOU IN THE CART !!!!!");
+    console.log("Props=>>>", this.props.cartStars[0]);
+    const order = this.props.cartStars[0] || [];
+    const stars = order.stars || [];
+    console.log(stars);
+    // const result = this.props.cartStars["0"];
+    // const { stars } = result;
+    // console.log("RESULT=>>>> ", result);
+    // console.log("STARS=>>", stars);
 
     return (
       <div>
-        <h1>THIS IS CART</h1>
-
-
+        <div>
+          {stars.length < 1 ? (
+            <div>
+              <h1>GO BACK AND ADD SOMETHING TO CART!!!</h1>
+            </div>
+          ) : (
+            <div>
+              {stars.map((star) => (
+                <div key={star.id}>
+                  <img src={star.imageUrl} />
+                  <h2>{star.name}</h2>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -42,7 +57,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch, { history }) => ({
-  // fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
+  fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);
@@ -67,68 +82,3 @@ export default connect(mapState, mapDispatch)(Cart);
 //         //   <div>{console.log("add to cart")} Add to the cart!!!</div>
 //         // )}
 // */
-
-// const CartApp = () => {
-
-//   const getStars = fetchCartStars()
-
-//   let [cart, setCart] = useState([])
-
-//   let myCart = localStorage.getItem("cart");
-
-//   const addStar = (star) => {
-//     // copy cart state so existing state is not overwritten
-//     let cartCopy = [...cart];
-
-//     let {id} = star;
-
-//     // search cart array for star
-
-//     let isStarInCart = cartCopy.find(star => star.id === id);
-
-//     // if star is already in cart
-//     if (isStarInCart) {
-//       console.log('already in cart')
-//     } else {
-//       cartCopy.push(star)
-//     }
-
-//     //update state
-//     setCart(cartCopy)
-
-//     // store string of cart in local storage
-//     let storeCart = JSON.stringify(cartCopy);
-//     localStorage.setItem("cart", storeCart)
-//   };
-
-//   const updateStar = (starId, nickname) => {
-
-//     // add nickname here (to be completed upon purchase)
-//   };
-//   const removeStar = (starId) => {
-//     let cartCopy = [...cart]
-//     cartCopy = cartCopy.filter(star => star.id !== starId);
-
-//     setCart(cartCopy);
-//     let storeCart = JSON.stringify(cartCopy)
-//     localStorage.setItem('cart', storeCart)
-//   };
-
-//   // useEffect is a hook that can run as a functional component version of componentDidMount or componentWillMount
-
-//   // if user refreshes page, the cart needs to be loaded inside localStorage, if it exists, to restore it to the app's state
-//   useEffect(() => {
-
-//     myCart = JSON.parse(myCart)
-
-//     if(myCart) setCart(myCart)
-//     // empty array means useEffect only runs once
-//   }, [])
-
-//   return <div>
-//     <h1>This is the cart page</h1>
-//     {getStars()}
-//   </div>
-// }
-
-// export default CartApp
