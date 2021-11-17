@@ -8,12 +8,16 @@ const { requireToken, isAdmin } = require("./gateKeepingMiddleware");
 // console.log(Order_Details.prototype);
 // requireToken creates a block in the browser but not in Postman.
 // should also be isAdmin to view api routes
-cartRouter.get("/", async (req, res, next) => {
+cartRouter.get("/:userId", async (req, res, next) => {
   try {
+
+    console.log('userId in /cart/userId', req.params.userId)
     // console.log("req.params", req.user);
     const orders = await Order.findAll({
       where: {
         isBought: false,
+        userId: req.params.userId,
+        //userId: req.user.id
       },
       include: [
         {
@@ -53,7 +57,7 @@ cartRouter.get("/", async (req, res, next) => {
 // find one Order in cart by this userId, if there is an order, return that order
 // if not, then create an order for this user.
 cartRouter.get(
-  "/cart/:userId/:starId",
+  "/:userId/:starId",
   // requireToken,
   async (req, res, next) => {
     try {

@@ -14,6 +14,7 @@ class Cart extends Component {
   componentDidMount() {
     // console.log("PROPS ON DIDMOUNT", this.props);
     const userId = this.props.auth.id;
+    console.log('userId in DidMount:', userId)
     this.props.fetchCartStars(userId);
     console.log("current state", this.state);
   }
@@ -27,6 +28,7 @@ class Cart extends Component {
     return (
       <div>
         <h1>THIS IS CART</h1>
+
       </div>
     );
   }
@@ -38,7 +40,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch, { history }) => ({
-  fetchCartStars: () => dispatch(fetchCartStars(history)),
+  fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);
