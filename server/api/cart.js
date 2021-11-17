@@ -74,13 +74,16 @@ cartRouter.get(
         ],
       });
 
+      const star = await Star.findByPk(req.params.starId)
+
       if (order) {
 
-        //const star = await Star.findByPk(req.params.starId)
         //await Order_Details.setStar(star)
         await Order_Details.create({
           orderId: order.id,
-          starId: req.params.starId
+          starId: req.params.starId,
+          quantity: star.quantity,
+          totalPrice: star.price
         })
 
         res.json(order);
@@ -92,7 +95,9 @@ cartRouter.get(
 
         await Order_Details.create({
           orderId: newOrder.id,
-          starId: req.params.starId
+          starId: req.params.starId,
+          quantity: star.quantity,
+          totalPrice: star.price
         })
         res.json(newOrder);
       }
