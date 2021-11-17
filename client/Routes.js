@@ -6,6 +6,7 @@ import AllStars from "./components/AllStars";
 import SingleStar from "./components/SingleStarView";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
+import Cart from "./components/Cart";
 
 /**
  * COMPONENT
@@ -25,12 +26,14 @@ class Routes extends Component {
           <Switch>
             <Route exact path="/stars" component={AllStars} />
             <Route path="/stars/:id" component={SingleStar} />
+            <Route exact path="/cart" component={Cart} />
             <Route path="*" component={NotFound} />
           </Switch>
         ) : (
           <Switch>
             <Route exact path="/stars" component={AllStars} />
             <Route path="/stars/:id" component={SingleStar} />
+            <Route exact path="/cart" component={Cart} />
             <Route path="*" component={NotFound} />
           </Switch>
         )}

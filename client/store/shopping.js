@@ -23,22 +23,22 @@ export const _removeFromCart = (star) => {
   };
 };
 
-export const _fetchCartStars = (stars) => {
+export const _fetchCartStars = (orders) => {
   return {
     type: FETCH_CART_STARS,
-    stars,
+    orders,
   };
 };
 
-export const addToCart = (star) => {
+export const addToCart = (starId, userId, history) => {
   return async (dispatch) => {
     try {
       console.log("star in thunk:", star);
       // posting to /orders route
-      const { data: added } = await axios.post(`/api/cart`, star);
+      const { data: added } = await axios.get(`/api/cart/${userId}/${starId}`);
       console.log("Added =>> ", added);
       dispatch(_addToCart(added));
-      history.pushState("/stars");
+      history.push("/cart");
     } catch (e) {
       console.log("Error: cannot add to cart.");
     }
@@ -67,9 +67,9 @@ export const removeFromCart = (starId) => {
 export const fetchCartStars = () => {
   return async (dispatch) => {
     try {
-      const { data: stars } = await axios.get(`/api/cart`);
-      console.log("stars in fetchCartStars thunk:", stars);
-      dispatch(_fetchCartStars(stars));
+      const { data: orders } = await axios.get(`/api/cart`);
+      console.log("stars in fetchCartStars thunk:", orders);
+      dispatch(_fetchCartStars(orders));
     } catch (e) {
       console.log("Stars not found for this cart");
     }
@@ -78,6 +78,7 @@ export const fetchCartStars = () => {
 
 const initialState = {
   stars: [],
+  orders: [],
 };
 
 export default function cartReducer(state = initialState, action) {
@@ -90,7 +91,7 @@ export default function cartReducer(state = initialState, action) {
         stars: state.stars.filter((star) => star.id !== action.star.id),
       };
     case FETCH_CART_STARS:
-      return action.stars;
+      return { ...state, orders: [...state.orders, action.orders] };
     default:
       return state;
   }

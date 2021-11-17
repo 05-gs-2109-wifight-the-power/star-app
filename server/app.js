@@ -5,7 +5,7 @@ const app = express();
 module.exports = app;
 
 if (process.env.NODE_ENV !== "development") {
-  require("../secrets");
+  // require("../secrets");
   //console.log('log environment variables', process.env)
 }
 
