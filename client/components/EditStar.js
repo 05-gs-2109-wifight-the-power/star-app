@@ -31,12 +31,12 @@ class EditStar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="edit-star-wrapper">
         {/* decide on placement */}
-        <h5>${this.props.star.price}</h5>
+        {/* <h5>${this.props.star.price}</h5> */}
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="userStarName">${this.props.star.price}</label>
-          <input
+          <label className="star-price" htmlFor="userStarName">${this.props.star.price}</label>
+          <input className="rename-star"
             name="newStarName"
             type="text"
             value={this.state.starName}
@@ -44,9 +44,9 @@ class EditStar extends Component {
             placeholder="Your Star Name"
           />
           {/* can be changed to img when we decide on add to favorites image */}
-          <button>pretend this is a star image</button>
+          {/* <button>pretend this is a star image</button> */}
           <br />
-          <button type="submit" onClick = {() => this.props.addToCart(this.props.star)}>Add To Cart</button>
+          <button className="cart-button" type="submit" onClick = {() => this.props.addToCart(this.props.star)}>Add To Cart</button>
         </form>
 
       </div>

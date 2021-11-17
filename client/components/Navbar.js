@@ -23,30 +23,35 @@ class Navbar extends Component {
   render() {
     const { handleClick, isLoggedIn, username } = this.props;
     const { handleToggle } = this;
+    const style = {marginRight: "100px", cursor:"pointer"}
     return (
       <div>
-        <h1>ASTRO MART</h1>
         <nav>
+        <h1 className="name-navbar">ASTRO MART</h1>
+          <Link className="nav-link" to="/stars">Home</Link>
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/stars">Home</Link>
-              <a href="#" onClick={handleClick}>
+              {/* <a href="#" onClick={handleClick}>
                 Logout
               </a>
-              <CgProfile />
-              <CgShoppingBag />
-              {/* <h3>Welcome, {username}</h3> */}
+              <CgProfile /> */}
+
+              <CgProfile onClick={handleToggle} size="22"/>
+              {this.state.hidden && <div className ="profile-wrapper"><p className="option">{`Hello, ${username}`}</p><a className="logout option" href="#" onClick={handleClick}>
+                Logout
+              </a></div>}
             </div>
           ) : (
             <div>
-              <Link to="/stars">Home</Link>
               {/* The navbar will show these links before you log in */}
-              {!isLoggedIn && <button onClick={handleToggle}>Sign in</button>}
+              {/* {!isLoggedIn && <button className="nav-link" onClick={handleToggle}>Sign in</button>} */}
+
+              {!isLoggedIn && <div className="nav-link" onClick={handleToggle}>Sign in</div>}
               {!this.state.hidden && <Login />}
-              <CgShoppingBag />
             </div>
           )}
+          <CgShoppingBag style={style} size="22"/>
         </nav>
         <hr />
       </div>
