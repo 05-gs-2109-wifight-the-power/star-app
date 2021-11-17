@@ -44,20 +44,42 @@ form div {
 }
 
 .star-name {
-  font-weight: 300;
-  margin: 5px 0 5px 0;
+  font-weight: 200;
+  margin: 7px 0 5px 0;
   color: #3a3a3a;
+  font-size: 19px;
 }
 
 .star-price {
   font-weight: 600;
   color: #3a3a3a;
-  margin: 5px 0 70px 0;
+  margin: 5px 0 20px 0;
   font-size: 18px;
 }
 
+.add-cart-bttn {
+  margin: 5px 0 5px 0;
+  border: none;
+  background-color: #B5D0DC;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  /* border: solid; */
+  border-radius: 100px;
+  letter-spacing: 1px;
+  height: 35px;
+  width: 125px;
+}
+
+.add-cart-bttn:hover {
+  background-color: #9BBAC7;
+
+}
+
 .card-content {
-  padding: 0.4em;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0 70px 0;
 }
 
 .card-content h2 {
@@ -122,3 +144,45 @@ form div {
 }
 
 /* ------- Sign in form - END ----------- */
+
+/* ------- Welcome Page - START ----------- */
+
+.welcome-wrapper {
+  position: relative;
+  top:-200px;
+  background-image: url("images/Welcome-page.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  padding-bottom: 200px;
+  text-align: center;
+  background-color: #F2F8FA;
+}
+
+.welcome-bttn {
+  position: relative;
+  top: 530px;
+  outline-style: solid;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: auto;
+  border-radius: 100px;
+  background-color: white;
+}
+
+.site-description {
+  position: relative;
+  top: 470px;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.bttn-text {
+  color: black;
+  font-weight: bold;
+}
+/* ------- Welcome Page - END ----------- */
+#app {
+
+}

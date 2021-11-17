@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div>
-      <h1>ASTRO MART</h1>
-      <h5>Example website description</h5>
-      <Link to="/stars">Get started</Link>
+    <div className="welcome-wrapper">
+      <h5 className="site-description">Example website description</h5>
+      <div className="welcome-bttn">
+      <Link className="bttn-text" to="/stars">Get started</Link>
+      </div>
     </div>
   );
 };

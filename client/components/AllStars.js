@@ -26,9 +26,13 @@ class AllStars extends Component {
               <Link to={`stars/${star.id}`}>
                 <img className="star-img" src={star.imageUrl} />
                 <div className="card-content">
-                  <h1 className="star-name">{star.name}</h1>
-                  <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
-                  <button type="submit" onClick = {() => this.props.addToCart(star)}>Add To Cart</button>
+                  <div className="card-text">
+                      <h1 className="star-name">{star.name}</h1>
+                      <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
+                  </div>
+                  <div className="add-cart-bttn-wrapper">
+                      <button className="add-cart-bttn" type="submit" onClick = {() => this.props.addToCart(star)}>Add To Cart</button>
+                  </div>
                 </div>
               </Link>
             </article>
