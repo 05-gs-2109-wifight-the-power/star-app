@@ -1,5 +1,6 @@
 const cartRouter = require("express").Router();
 module.exports = cartRouter;
+//const { addToCart } = require("../../client/store/shopping");
 const {
   models: { Star, Order, Order_Details, User },
 } = require("../db");
@@ -8,12 +9,16 @@ const { requireToken, isAdmin } = require("./gateKeepingMiddleware");
 // console.log(Order_Details.prototype);
 // requireToken creates a block in the browser but not in Postman.
 // should also be isAdmin to view api routes
-cartRouter.get("/", async (req, res, next) => {
+cartRouter.get("/:userId", async (req, res, next) => {
   try {
+
+    console.log('userId in /cart/userId', req.params.userId)
     // console.log("req.params", req.user);
     const orders = await Order.findAll({
       where: {
         isBought: false,
+        userId: req.params.userId,
+        //userId: req.user.id
       },
       include: [
         {
@@ -53,7 +58,7 @@ cartRouter.get("/", async (req, res, next) => {
 // find one Order in cart by this userId, if there is an order, return that order
 // if not, then create an order for this user.
 cartRouter.get(
-  "/cart/:userId/:starId",
+  "/:userId/:starId",
   // requireToken,
   async (req, res, next) => {
     try {
@@ -68,10 +73,32 @@ cartRouter.get(
           },
         ],
       });
+
+      const star = await Star.findByPk(req.params.starId)
+
       if (order) {
+
+        //await Order_Details.setStar(star)
+        await Order_Details.create({
+          orderId: order.id,
+          starId: req.params.starId,
+          quantity: star.quantity,
+          totalPrice: star.price
+        })
+
         res.json(order);
       } else {
-        const newOrder = await Order.create();
+        const newOrder = await Order.create(
+          {
+            userId: req.params.userId
+          });
+
+        await Order_Details.create({
+          orderId: newOrder.id,
+          starId: req.params.starId,
+          quantity: star.quantity,
+          totalPrice: star.price
+        })
         res.json(newOrder);
       }
     } catch (err) {

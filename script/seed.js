@@ -19,7 +19,7 @@ const orderDetailsDummies = JSON.parse(
   fs.readFileSync("order-details-dummy-data.json")
 );
 
-console.log("User Dummies on Seed.js", userDummies);
+//console.log("User Dummies on Seed.js", userDummies);
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.

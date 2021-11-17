@@ -33,12 +33,12 @@ export const _fetchCartStars = (orders) => {
 export const addToCart = (starId, userId, history) => {
   return async (dispatch) => {
     try {
-      console.log("star in thunk:", star);
+      console.log("star in thunk:", starId);
       // posting to /orders route
       const { data: added } = await axios.get(`/api/cart/${userId}/${starId}`);
       console.log("Added =>> ", added);
       dispatch(_addToCart(added));
-      history.push("/cart");
+      history.push(`/cart/${userId}`);
     } catch (e) {
       console.log("Error: cannot add to cart.");
     }
@@ -64,10 +64,10 @@ export const removeFromCart = (starId) => {
   };
 };
 
-export const fetchCartStars = () => {
+export const fetchCartStars = (userId) => {
   return async (dispatch) => {
     try {
-      const { data: orders } = await axios.get(`/api/cart`);
+      const { data: orders } = await axios.get(`/api/cart/${userId}`);
       console.log("stars in fetchCartStars thunk:", orders);
       dispatch(_fetchCartStars(orders));
     } catch (e) {

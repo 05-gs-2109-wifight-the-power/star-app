@@ -14,12 +14,14 @@ class Cart extends Component {
   componentDidMount() {
     // console.log("PROPS ON DIDMOUNT", this.props);
     const userId = this.props.auth.id;
-    this.props.fetchCartStars(userId);
+    console.log('userId in DidMount:', userId)
+    // this.props.fetchCartStars(userId);
     console.log("current state", this.state);
   }
   render() {
     console.log("Props=>>>", this.props);
     console.log("STATE", this.state);
+    console.log("this.state.cartSTars", this.props.cartStars)
     // console.log("what are my props? ", this.props.cartStars);
     // console.log("state?", this.state);
     // console.log("YOU IN THE CART !!!!!");
@@ -27,6 +29,8 @@ class Cart extends Component {
     return (
       <div>
         <h1>THIS IS CART</h1>
+
+
       </div>
     );
   }
@@ -38,7 +42,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch, { history }) => ({
-  fetchCartStars: () => dispatch(fetchCartStars(history)),
+  // fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);
