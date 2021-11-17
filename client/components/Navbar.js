@@ -40,6 +40,7 @@ class Navbar extends Component {
             </div>
           ) : (
             <div>
+              <Link to="/stars">Home</Link>
               {/* The navbar will show these links before you log in */}
               {!isLoggedIn && <button onClick={handleToggle}>Sign in</button>}
               {!this.state.hidden && <Login />}
