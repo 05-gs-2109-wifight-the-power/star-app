@@ -38,7 +38,7 @@ export const addToCart = (starId, userId, history) => {
       const { data: added } = await axios.get(`/api/cart/${userId}/${starId}`);
       console.log("Added =>> ", added);
       dispatch(_addToCart(added));
-      history.push("/cart");
+      history.push(`/cart/${userId}`);
     } catch (e) {
       console.log("Error: cannot add to cart.");
     }

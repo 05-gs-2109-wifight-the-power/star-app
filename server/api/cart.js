@@ -75,7 +75,7 @@ cartRouter.get(
       if (order) {
         res.json(order);
       } else {
-        const newOrder = await Order.create();
+        const newOrder = await Order.create({userId: req.params.userId});
         res.json(newOrder);
       }
     } catch (err) {
