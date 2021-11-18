@@ -105,7 +105,7 @@ cartRouter.delete("/:orderId", async (req, res, next) => {
   }
 });
 
-// UPDATE /api/cart/:starId to Update from DATA
+// UPDATE /api/cart/:orderId to Update from DATA
 cartRouter.put("/:orderId", async (req, res, next) => {
   try {
     const order = await Order.findByPk(req.params.orderId);
@@ -114,3 +114,13 @@ cartRouter.put("/:orderId", async (req, res, next) => {
     next(e);
   }
 });
+
+// // UPDATE /api/cart/:starId to Update from DATA
+// cartRouter.put("/update/:starId", async (req, res, next) => {
+//   try {
+//     const star = await Star.findByPk(req.params.starId);
+//     res.json(await star.update(req.body));
+//   } catch (e) {
+//     next(e);
+//   }
+// });

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchCartStars, updateDb } from "../store/shopping";
+import { fetchCartStars, updateDb, updateStar } from "../store/shopping";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -19,10 +19,14 @@ class Cart extends Component {
     // this.setState({ orders: this.props.cartStars.stars });
     // console.log("current state", this.state);
   }
-  handleUpdate(order) {
+  handleUpdate(order, stars) {
     order.isBought = true;
-    console.log(order.isBought);
+    // console.log(order.isBought);
     this.props.updateDb(order.id, order.isBought);
+    stars.forEach((star) => {
+      star.isAvailable = false;
+      this.props.updateStar(star.id, star.isAvailable);
+    });
   }
 
   render() {
@@ -52,7 +56,7 @@ class Cart extends Component {
               <div>SubTotal: ${subTotal.reduce((prev, val) => prev + val)}</div>
               <div>
                 <Link to="/thanks">
-                  <button onClick={() => this.handleUpdate(order)}>
+                  <button onClick={() => this.handleUpdate(order, stars)}>
                     CHECKOUT
                   </button>
                 </Link>
@@ -74,6 +78,8 @@ const mapDispatch = (dispatch, { history }) => ({
   fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
   updateDb: (orderId, isBought) =>
     dispatch(updateDb(orderId, isBought, history)),
+  updateStar: (starId, isAvailable) =>
+    dispatch(updateStar(starId, isAvailable, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);

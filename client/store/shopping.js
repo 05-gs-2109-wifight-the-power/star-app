@@ -5,6 +5,7 @@ import axios from "axios";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const UPDATE_ORDER = "UPDATE_ORDER";
+export const UPDATE_AVAILABLE = "UPDATE_AVAILABLE";
 export const FETCH_CART_STARS = "FETCH_CART_STARS";
 
 // actions
@@ -37,6 +38,14 @@ export const _updateOrder = (bought) => {
   };
 };
 
+export const _updateAvailable = (soldOut) => {
+  return {
+    type: UPDATE_AVAILABLE,
+    soldOut,
+  };
+};
+
+// -------THUNK CREATOR ------------------
 export const addToCart = (starId, userId, history) => {
   return async (dispatch) => {
     try {
@@ -89,6 +98,20 @@ export const updateDb = (orderId, isBought) => async (dispatch) => {
     console.log("Update Order Error", e);
   }
 };
+
+export const updateStar = (starId, isAvailable) => async (dispatch) => {
+  try {
+    const { data: soldOut } = await axios.put(`/api/stars/${starId}`, {
+      starId,
+      isAvailable,
+    });
+    const action = _updateAvailable(soldOut);
+    dispatch(action);
+  } catch (e) {
+    console.log("Update Order Error", e);
+  }
+};
+
 // const initialState = {
 //   stars: [],
 //   // orders: [],
@@ -108,6 +131,8 @@ export default function cartReducer(state = {}, action) {
       return action.orders;
     case UPDATE_ORDER:
       return action.bought;
+    case UPDATE_AVAILABLE:
+      return action.soldOut;
     default:
       return state;
   }
