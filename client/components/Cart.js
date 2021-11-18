@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { fetchCartStars, updateDb, updateStar } from "../store/shopping";
+import {
+  fetchCartStars,
+  updateDb,
+  updateStar,
+  removeFromCart,
+} from "../store/shopping";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -10,6 +15,7 @@ class Cart extends Component {
       orders: [],
     };
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +33,10 @@ class Cart extends Component {
       star.isAvailable = false;
       this.props.updateStar(star.id, star.isAvailable);
     });
+  }
+
+  handleDelete(orderId, starId) {
+    this.props.removeFromCart(orderId, starId);
   }
 
   render() {
@@ -51,6 +61,9 @@ class Cart extends Component {
                   <h3>{star.userStarName}</h3>
                   <p>{star.bio}</p>
                   {subTotal.push(star.price)}
+                  <button onClick={() => this.handleDelete(order.id, star.id)}>
+                    REMOVE
+                  </button>
                 </div>
               ))}
               <div>SubTotal: ${subTotal.reduce((prev, val) => prev + val)}</div>
@@ -80,6 +93,8 @@ const mapDispatch = (dispatch, { history }) => ({
     dispatch(updateDb(orderId, isBought, history)),
   updateStar: (starId, isAvailable) =>
     dispatch(updateStar(starId, isAvailable, history)),
+  removeFromCart: (orderId, starId) =>
+    dispatch(removeFromCart(orderId, starId, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);

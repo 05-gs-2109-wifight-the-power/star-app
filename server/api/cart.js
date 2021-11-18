@@ -96,10 +96,14 @@ cartRouter.get("/:userId/:starId", async (req, res, next) => {
   }
 });
 
-// DELETE /api/cart/:orderId to delete from Cart
-cartRouter.delete("/:orderId", async (req, res, next) => {
+// REMOVE FROM CART /api/cart/:orderId/:starId
+cartRouter.delete("/:orderId/:starId", async (req, res, next) => {
   try {
-    const order = await Order_Details.findByPk();
+    const orderDestroyed = await Order_Details.findOne({
+      where: { starId: req.params.starId, orderId: req.params.orderId },
+    });
+    await orderDestroyed.destroy();
+    res.json(orderDestroyed);
   } catch (e) {
     next(e);
   }
@@ -114,13 +118,3 @@ cartRouter.put("/:orderId", async (req, res, next) => {
     next(e);
   }
 });
-
-// // UPDATE /api/cart/:starId to Update from DATA
-// cartRouter.put("/update/:starId", async (req, res, next) => {
-//   try {
-//     const star = await Star.findByPk(req.params.starId);
-//     res.json(await star.update(req.body));
-//   } catch (e) {
-//     next(e);
-//   }
-// });

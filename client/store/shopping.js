@@ -17,10 +17,10 @@ export const _addToCart = (star) => {
   };
 };
 
-export const _removeFromCart = (star) => {
+export const _removeFromCart = (orderDestroyed) => {
   return {
     type: REMOVE_FROM_CART,
-    star,
+    orderDestroyed,
   };
 };
 
@@ -49,11 +49,7 @@ export const _updateAvailable = (soldOut) => {
 export const addToCart = (starId, userId, history) => {
   return async (dispatch) => {
     try {
-      console.log("star in thunk:", starId);
-      console.log("User ID=>>> ", userId);
-      // posting to /orders route
       const { data: added } = await axios.get(`/api/cart/${userId}/${starId}`);
-      console.log("Added =>> ", added);
       dispatch(_addToCart(added));
       history.push(`/cart/${userId}`);
     } catch (e) {
@@ -62,11 +58,13 @@ export const addToCart = (starId, userId, history) => {
   };
 };
 
-export const removeFromCart = (orderId) => {
+export const removeFromCart = (orderId, starId) => {
   return async (dispatch) => {
     try {
-      const { data: star } = await axios.delete(`/api/cart/${orderId}`);
-      dispatch(_removeFromCart(star));
+      const { data: orderDestroyed } = await axios.delete(
+        `/api/cart/${orderId}/${starId}`
+      );
+      dispatch(_removeFromCart(orderDestroyed));
     } catch (e) {
       console.log("Error: cannot delete from cart");
     }
@@ -77,7 +75,6 @@ export const fetchCartStars = (userId) => {
   return async (dispatch) => {
     try {
       const { data: orders } = await axios.get(`/api/cart/${userId}`);
-      console.log("stars in fetchCartStars thunk:", orders);
       dispatch(_fetchCartStars(orders));
     } catch (e) {
       console.log("Stars not found for this cart");
@@ -123,10 +120,11 @@ export default function cartReducer(state = {}, action) {
       // return { ...state, stars: [...state.stars, action.star] };
       return action.star;
     case REMOVE_FROM_CART:
-      return {
-        ...state,
-        stars: state.stars.filter((star) => star.id !== action.star.id),
-      };
+      return action.orderDestroyed;
+    // {
+    //   ...state,
+    //   stars: state.stars.filter((star) => star.id !== action.star.id),
+    // };
     case FETCH_CART_STARS:
       return action.orders;
     case UPDATE_ORDER:
