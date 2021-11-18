@@ -34,11 +34,13 @@ class EditStar extends Component {
 
   handleCart(starId) {
     this.props.addToCart(starId, this.props.userId);
+    console.log("star id", starId);
+    console.log("user id", this.props.userId);
   }
 
   render() {
     console.log("props", this.props);
-    const { star, userId } = this.props;
+    const star = this.props.star || [];
     return (
       <div className="edit-star-wrapper">
         {/* decide on placement */}
@@ -58,14 +60,14 @@ class EditStar extends Component {
           {/* can be changed to img when we decide on add to favorites image */}
           {/* <button>pretend this is a star image</button> */}
           <br />
-          <button
-            className="cart-button"
-            type="submit"
-            onClick={() => this.handleCart(star.id)}
-          >
-            Add To Cart
-          </button>
         </form>
+        <button
+          className="cart-button"
+          type="submit"
+          onClick={() => this.handleCart(star.id)}
+        >
+          Add To Cart
+        </button>
       </div>
     );
   }
