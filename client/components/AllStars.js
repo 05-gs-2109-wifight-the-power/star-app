@@ -21,7 +21,7 @@ class AllStars extends Component {
     console.log("Props on DidMount", this.props);
     this.currencyFormat = this.currencyFormat.bind(this);
 
-    const stars = JSON.parse(localStorage.getItem('stars'))
+    const stars = JSON.parse(localStorage.getItem('stars')) || []
     const rememberMe = localStorage.getItem('rememberMe')=== 'true';
     this.setState({stars, rememberMe})
   }
@@ -36,17 +36,10 @@ class AllStars extends Component {
   }
 
   handleGuestCart(starId) {
-    // const {star, rememberMe } = this.state;
-    //this.state.stars.push(JSON.parse(localStorage.getItem('stars')))
-
     this.state.stars.push(starId)
     localStorage.setItem('stars', JSON.stringify(this.state.stars));
-
-
-     localStorage.setItem('rememberMe', 'true')
-     //this.setState(this.state.stars)
-
-     console.log('stars:', this.state.stars)
+    localStorage.setItem('rememberMe', 'true')
+    console.log('stars:', this.state.stars)
    }
 
   render() {
@@ -84,7 +77,7 @@ class AllStars extends Component {
                   isLoggedIn ?
                   this.handleCart(star.id)
                   :
-                  this.handleGuestCart(star.id)
+                  this.handleGuestCart(star)
                   }
                 >
                   Add To Cart

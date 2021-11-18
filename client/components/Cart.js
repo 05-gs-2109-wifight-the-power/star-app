@@ -7,6 +7,7 @@ import {
 } from "../store/shopping";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Login } from  "./AuthForm";
 
 class Cart extends Component {
   constructor(props) {
@@ -24,6 +25,10 @@ class Cart extends Component {
     this.props.fetchCartStars(userId);
     // this.setState({ orders: this.props.cartStars.stars });
     // console.log("current state", this.state);
+
+    const guestStars = JSON.parse(localStorage.getItem('stars'))
+    this.setState({guestStars})
+    console.log('guest stars:', guestStars)
   }
   handleUpdate(order, stars) {
     order.isBought = true;
@@ -40,15 +45,21 @@ class Cart extends Component {
   }
 
   render() {
+
+    const { isLoggedIn } = this.props;
+    console.log('logged in?', isLoggedIn)
     console.log("Props=>>>", this.props.cartStars[0]);
     const order = this.props.cartStars[0] || [];
-    const stars = order.stars || [];
+    let stars = order.stars || [];
     const orderDetails = order.Order_Details || [];
     const subTotal = [];
+
+    //if (!isLoggedIn) stars = this.props.guestStars
     return (
       <div>
         <div>
-          {stars.length < 1 ? (
+          {
+            stars.length < 1 ? (
             <div>
               <h1>GO BACK AND ADD SOMETHING TO CART!!!</h1>
             </div>
@@ -85,6 +96,7 @@ class Cart extends Component {
 const mapState = (state) => ({
   cartStars: state.cartStars,
   auth: state.auth,
+  isLoggedIn: !!state.auth.id,
 });
 
 const mapDispatch = (dispatch, { history }) => ({
