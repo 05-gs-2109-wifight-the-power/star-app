@@ -3,17 +3,27 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchStars } from "../store/stars";
 import { addToCart } from "../store/shopping";
+import { Login } from "./AuthForm";
 
 class AllStars extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      rememberMe: false,
+      stars: []
+    }
     this.handleCart = this.handleCart.bind(this);
+    //this.handleGuestCart = this.handleGuestCart.bind(this);
   }
   componentDidMount() {
     this.props.fetchStars();
     console.log("Props on DidMount", this.props);
     this.currencyFormat = this.currencyFormat.bind(this);
+
+    const stars = JSON.parse(localStorage.getItem('stars'))
+    const rememberMe = localStorage.getItem('rememberMe')=== 'true';
+    this.setState({stars, rememberMe})
   }
 
   currencyFormat(num) {
@@ -25,8 +35,29 @@ class AllStars extends Component {
     this.props.addToCart(starId, userId);
   }
 
+  handleGuestCart(starId) {
+    // const {star, rememberMe } = this.state;
+    //this.state.stars.push(JSON.parse(localStorage.getItem('stars')))
+
+    this.state.stars.push(starId)
+    localStorage.setItem('stars', JSON.stringify(this.state.stars));
+
+
+     localStorage.setItem('rememberMe', 'true')
+     //this.setState(this.state.stars)
+
+     console.log('stars:', this.state.stars)
+   }
+
   render() {
     console.log("Props on render =>", this.props);
+
+
+
+    const { isLoggedIn } = this.props;
+
+    console.log('isLoggedIn?', isLoggedIn)
+
     return (
       <main className="main-area">
         <section className="cards">
@@ -48,7 +79,13 @@ class AllStars extends Component {
                 <button
                   className="add-cart-bttn"
                   type="submit"
-                  onClick={() => this.handleCart(star.id)}
+                  onClick={() =>
+
+                  isLoggedIn ?
+                  this.handleCart(star.id)
+                  :
+                  this.handleGuestCart(star.id)
+                  }
                 >
                   Add To Cart
                 </button>
@@ -64,6 +101,7 @@ class AllStars extends Component {
 const mapState = (state) => ({
   stars: state.stars,
   userId: state.auth.id,
+  isLoggedIn: !!state.auth.id,
 });
 
 const mapDispatch = (dispatch, { history }) => ({
