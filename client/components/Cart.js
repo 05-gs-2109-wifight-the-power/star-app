@@ -40,14 +40,14 @@ class Cart extends Component {
   }
 
   render() {
+
     console.log("Props=>>>", this.props.cartStars[0]);
     const order = this.props.cartStars[0] || [];
     const stars = order.stars || [];
     const orderDetails = order.Order_Details || [];
     const subTotal = [];
     return (
-      <div>
-        <div>
+        <div className="cart-wrapper">
           {stars.length < 1 ? (
             <div>
               <h1>GO BACK AND ADD SOMETHING TO CART!!!</h1>
@@ -55,29 +55,37 @@ class Cart extends Component {
           ) : (
             <div>
               {stars.map((star) => (
-                <div key={star.id}>
-                  <img src={star.imageUrl} width="200px" />
-                  <h2>{star.name}</h2>
-                  <h3>{star.userStarName}</h3>
-                  <p>{star.bio}</p>
-                  {subTotal.push(star.price)}
-                  <button onClick={() => this.handleDelete(order.id, star.id)}>
-                    REMOVE
+                <div className="cart-item-wrapper" key={star.id}>
+                  <img src={star.imageUrl} width="150px" />
+                  <div className="cart-item-text">
+                    <h2>{star.userStarName === "Unclaimed" ? star.name : star.userStarName}</h2>
+                      {/* <h2>{star.name}</h2>
+                      <h3>{star.userStarName}</h3> */}
+                      <p className="cart-item-bio">{star.bio}</p>
+                  </div>
+                  <div className="cart-subtotal">
+                    {subTotal.push(star.price)}
+                  </div>
+                  <div className="cart-item-price">${star.price}
+                  </div>
+                  <button className="cart-item-remove"onClick={() => this.handleDelete(order.id, star.id)}>
+                    X
                   </button>
                 </div>
               ))}
-              <div>SubTotal: ${subTotal.reduce((prev, val) => prev + val)}</div>
+              <div className="cart-total">Total ${subTotal.reduce((prev, val) => prev + val)}</div>
               <div>
-                <Link to="/thanks">
-                  <button onClick={() => this.handleUpdate(order, stars)}>
-                    CHECKOUT
-                  </button>
-                </Link>
+                <div className="checkout-bttn">
+                  <Link to="/thanks">
+                    <button className="checkout"onClick={() => this.handleUpdate(order, stars)}>
+                      CHECKOUT
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           )}
         </div>
-      </div>
     );
   }
 }
