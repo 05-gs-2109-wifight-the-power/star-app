@@ -41,7 +41,7 @@ class EditStar extends Component {
             type="text"
             value={this.state.starName}
             onChange={this.handleChange}
-            placeholder="Your Star Name"
+            placeholder="Your star's name"
           />
           {/* can be changed to img when we decide on add to favorites image */}
           {/* <button>pretend this is a star image</button> */}
