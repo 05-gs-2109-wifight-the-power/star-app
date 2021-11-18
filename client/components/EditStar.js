@@ -61,7 +61,7 @@ class EditStar extends Component {
           <button
             className="cart-button"
             type="submit"
-            onClick={() => this.handleCart(star.id, userId)}
+            onClick={() => this.handleCart(star.id)}
           >
             Add To Cart
           </button>
@@ -76,11 +76,10 @@ const mapState = (state) => ({
   userId: state.auth.id,
 });
 
-const mapDispatch = (dispatch) => ({
+const mapDispatch = (dispatch, { history }) => ({
   updateUserStarName: (id, updateStarName) =>
     dispatch(updateStarInDb(id, updateStarName)),
-  addToCart: (starId, userId, { history }) =>
-    dispatch(addToCart(starId, userId, history)),
+  addToCart: (starId, userId) => dispatch(addToCart(starId, userId, history)),
 });
 
 export default connect(mapState, mapDispatch)(EditStar);
