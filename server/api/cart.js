@@ -52,56 +52,64 @@ cartRouter.get("/:userId", async (req, res, next) => {
 // isUser() <====
 // find one Order in cart by this userId, if there is an order, return that order
 // if not, then create an order for this user.
-cartRouter.get(
-  "/:userId/:starId",
-  // requireToken,
-  async (req, res, next) => {
-    try {
-      const order = await Order.findOne({
-        where: {
-          userId: req.params.userId,
-          isBought: false,
+// requireToken,
+cartRouter.get("/:userId/:starId", async (req, res, next) => {
+  try {
+    const order = await Order.findOne({
+      where: {
+        userId: req.params.userId,
+        isBought: false,
+      },
+      include: [
+        {
+          model: Order_Details,
         },
-        include: [
-          {
-            model: Order_Details,
-          },
-        ],
+      ],
+    });
+
+    const star = await Star.findByPk(req.params.starId);
+
+    if (order) {
+      await Order_Details.create({
+        orderId: order.id,
+        starId: req.params.starId,
+        quantity: star.quantity,
+        totalPrice: star.price,
       });
 
-      const star = await Star.findByPk(req.params.starId);
+      res.json(order);
+    } else {
+      const newOrder = await Order.create({
+        userId: req.params.userId,
+      });
 
-      if (order) {
-        await Order_Details.create({
-          orderId: order.id,
-          starId: req.params.starId,
-          quantity: star.quantity,
-          totalPrice: star.price,
-        });
-
-        res.json(order);
-      } else {
-        const newOrder = await Order.create({
-          userId: req.params.userId,
-        });
-
-        await Order_Details.create({
-          orderId: newOrder.id,
-          starId: req.params.starId,
-          quantity: star.quantity,
-          totalPrice: star.price,
-        });
-        res.json(newOrder);
-      }
-    } catch (err) {
-      next(err);
+      await Order_Details.create({
+        orderId: newOrder.id,
+        starId: req.params.starId,
+        quantity: star.quantity,
+        totalPrice: star.price,
+      });
+      res.json(newOrder);
     }
+  } catch (err) {
+    next(err);
   }
-);
+});
 
+// DELETE /api/cart/:orderId to delete from Cart
 cartRouter.delete("/:orderId", async (req, res, next) => {
   try {
     const order = await Order_Details.findByPk();
+  } catch (e) {
+    next(e);
+  }
+});
+
+// UPDATE /api/cart/:starId to Update from DATA
+cartRouter.put("/:orderId", async (req, res, next) => {
+  try {
+    const order = await Order.findByPk(req.params.orderId);
+    res.json(await order.update(req.body));
   } catch (e) {
     next(e);
   }

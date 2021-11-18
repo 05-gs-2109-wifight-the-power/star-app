@@ -1,7 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
-import { removeFromCart, fetchCartStars } from "../store/shopping";
+import React, { Component } from "react";
+import { fetchCartStars, updateDb } from "../store/shopping";
 import { connect } from "react-redux";
-import { fetchStars } from "../store/stars";
+import { Link } from "react-router-dom";
 
 class Cart extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Cart extends Component {
     this.state = {
       orders: [],
     };
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -18,16 +19,18 @@ class Cart extends Component {
     // this.setState({ orders: this.props.cartStars.stars });
     // console.log("current state", this.state);
   }
+  handleUpdate(order) {
+    order.isBought = true;
+    console.log(order.isBought);
+    this.props.updateDb(order.id, order.isBought);
+  }
+
   render() {
     console.log("Props=>>>", this.props.cartStars[0]);
     const order = this.props.cartStars[0] || [];
     const stars = order.stars || [];
-    console.log(stars);
-    // const result = this.props.cartStars["0"];
-    // const { stars } = result;
-    // console.log("RESULT=>>>> ", result);
-    // console.log("STARS=>>", stars);
-
+    const orderDetails = order.Order_Details || [];
+    const subTotal = [];
     return (
       <div>
         <div>
@@ -39,10 +42,21 @@ class Cart extends Component {
             <div>
               {stars.map((star) => (
                 <div key={star.id}>
-                  <img src={star.imageUrl} />
+                  <img src={star.imageUrl} width="200px" />
                   <h2>{star.name}</h2>
+                  <h3>{star.userStarName}</h3>
+                  <p>{star.bio}</p>
+                  {subTotal.push(star.price)}
                 </div>
               ))}
+              <div>SubTotal: ${subTotal.reduce((prev, val) => prev + val)}</div>
+              <div>
+                <Link to="/thanks">
+                  <button onClick={() => this.handleUpdate(order)}>
+                    CHECKOUT
+                  </button>
+                </Link>
+              </div>
             </div>
           )}
         </div>
@@ -58,6 +72,8 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch, { history }) => ({
   fetchCartStars: (userId) => dispatch(fetchCartStars(userId, history)),
+  updateDb: (orderId, isBought) =>
+    dispatch(updateDb(orderId, isBought, history)),
 });
 
 export default connect(mapState, mapDispatch)(Cart);
