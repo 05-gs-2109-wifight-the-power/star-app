@@ -7,6 +7,7 @@ import SingleStar from "./components/SingleStarView";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
+import ThankYou from "./components/ThankYou";
 
 /**
  * COMPONENT
@@ -27,6 +28,7 @@ class Routes extends Component {
             <Route exact path="/stars" component={AllStars} />
             <Route path="/stars/:id" component={SingleStar} />
             <Route exact path="/cart/:userId" component={Cart} />
+            <Route path="/thanks" component={ThankYou} />
             <Route path="*" component={NotFound} />
           </Switch>
         ) : (

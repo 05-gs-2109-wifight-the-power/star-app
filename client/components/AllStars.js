@@ -35,20 +35,24 @@ class AllStars extends Component {
               <Link to={`stars/${star.id}`}>
                 <img className="star-img" src={star.imageUrl} />
                 <div className="card-content">
-
                   <div className="card-text">
-                      <h1 className="star-name">{star.name}</h1>
-                      <h3 className="star-price">{this.currencyFormat(Number(star.price))}</h3>
+                    <h1 className="star-name">{star.name}</h1>
+                    <h3 className="star-price">
+                      {this.currencyFormat(Number(star.price))}
+                    </h3>
                   </div>
                 </div>
               </Link>
 
               <div className="add-cart-bttn-wrapper">
-                <button className="add-cart-bttn" type="submit" onClick={() => this.handleCart(star.id)}>
-                    Add To Cart
+                <button
+                  className="add-cart-bttn"
+                  type="submit"
+                  onClick={() => this.handleCart(star.id)}
+                >
+                  Add To Cart
                 </button>
               </div>
-
             </article>
           ))}
         </section>

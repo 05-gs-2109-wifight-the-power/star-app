@@ -52,56 +52,68 @@ cartRouter.get("/:userId", async (req, res, next) => {
 // isUser() <====
 // find one Order in cart by this userId, if there is an order, return that order
 // if not, then create an order for this user.
-cartRouter.get(
-  "/:userId/:starId",
-  // requireToken,
-  async (req, res, next) => {
-    try {
-      const order = await Order.findOne({
-        where: {
-          userId: req.params.userId,
-          isBought: false,
+// requireToken,
+cartRouter.get("/:userId/:starId", async (req, res, next) => {
+  try {
+    const order = await Order.findOne({
+      where: {
+        userId: req.params.userId,
+        isBought: false,
+      },
+      include: [
+        {
+          model: Order_Details,
         },
-        include: [
-          {
-            model: Order_Details,
-          },
-        ],
+      ],
+    });
+
+    const star = await Star.findByPk(req.params.starId);
+
+    if (order) {
+      await Order_Details.create({
+        orderId: order.id,
+        starId: req.params.starId,
+        quantity: star.quantity,
+        totalPrice: star.price,
       });
 
-      const star = await Star.findByPk(req.params.starId);
+      res.json(order);
+    } else {
+      const newOrder = await Order.create({
+        userId: req.params.userId,
+      });
 
-      if (order) {
-        await Order_Details.create({
-          orderId: order.id,
-          starId: req.params.starId,
-          quantity: star.quantity,
-          totalPrice: star.price,
-        });
-
-        res.json(order);
-      } else {
-        const newOrder = await Order.create({
-          userId: req.params.userId,
-        });
-
-        await Order_Details.create({
-          orderId: newOrder.id,
-          starId: req.params.starId,
-          quantity: star.quantity,
-          totalPrice: star.price,
-        });
-        res.json(newOrder);
-      }
-    } catch (err) {
-      next(err);
+      await Order_Details.create({
+        orderId: newOrder.id,
+        starId: req.params.starId,
+        quantity: star.quantity,
+        totalPrice: star.price,
+      });
+      res.json(newOrder);
     }
+  } catch (err) {
+    next(err);
   }
-);
+});
 
-cartRouter.delete("/:orderId", async (req, res, next) => {
+// REMOVE FROM CART /api/cart/:orderId/:starId
+cartRouter.delete("/:orderId/:starId", async (req, res, next) => {
   try {
-    const order = await Order_Details.findByPk();
+    const orderDestroyed = await Order_Details.findOne({
+      where: { starId: req.params.starId, orderId: req.params.orderId },
+    });
+    await orderDestroyed.destroy();
+    res.json(orderDestroyed);
+  } catch (e) {
+    next(e);
+  }
+});
+
+// UPDATE /api/cart/:orderId to Update from DATA
+cartRouter.put("/:orderId", async (req, res, next) => {
+  try {
+    const order = await Order.findByPk(req.params.orderId);
+    res.json(await order.update(req.body));
   } catch (e) {
     next(e);
   }

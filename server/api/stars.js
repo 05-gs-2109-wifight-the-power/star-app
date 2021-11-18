@@ -11,7 +11,11 @@ module.exports = starsRouter;
 // GET /api/stars
 starsRouter.get("/", async (req, res, next) => {
   try {
-    const stars = await Star.findAll();
+    const stars = await Star.findAll({
+      where: {
+        isAvailable: true,
+      },
+    });
     // console.log(User.prototype.addOrder(1));
 
     // console.log("these are our stars:", stars);
