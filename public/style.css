@@ -405,5 +405,68 @@ font-size: 14px;
   letter-spacing: .5px;
 }
 
-/* ------- Single star -END ----------- */
+/* ------- Single star - END ----------- */
 
+/* ------------- Cart - START ------------ */
+
+.cart-item-wrapper{
+  display: flex;
+  justify-content: space-around;
+  background-color: #F2F8FA;
+  margin: 30px 200px 30px 200px;
+  padding: 20px 0 20px 0;
+
+}
+
+.cart-item-text {
+  margin-top: 20px;
+}
+
+.cart-item-bio {
+  width: 400px;
+}
+
+.cart-item-remove {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  margin: 60px 0 60px 0;
+}
+.cart-subtotal{
+  display: none;
+}
+.cart-item-price {
+  margin: 60px 0 60px 250px;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.cart-total {
+  text-align: right;
+  margin: 30px 200px 30px 200px;
+  padding: 20px 0 0 0;
+  font-weight: bold;
+  font-size: 20px;
+  word-spacing: 40px;
+}
+.checkout-bttn {
+  text-align: right;
+  margin: 30px 200px 30px 200px;
+}
+.checkout:hover {
+  background-color: #1A7CA6;
+  font-weight: bold;
+  color: white;
+  border: none;
+  letter-spacing: .5px;
+}
+/* ------------- Cart - END ------------ */
+.thanks-wrapper{
+  text-align: center;
+  margin-top: 30vh;
+}
+.thanks-text {
+  margin: 20px 0 0 5px;
+  font-weight: lighter;
+  font-size: 20px;
+}
