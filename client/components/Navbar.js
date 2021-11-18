@@ -20,9 +20,18 @@ class Navbar extends Component {
     });
   }
 
+  componentDidMount() {
+    const userId = this.props.auth.userId;
+    console.log(userId)
+  }
+
   render() {
-    const { handleClick, isLoggedIn, username } = this.props;
+    const { handleClick, isLoggedIn, username, auth } = this.props;
+
+    const userId = auth.id
     const { handleToggle } = this;
+    console.log("PROPS", userId)
+
     const style = {marginRight: "100px", cursor:"pointer"}
     return (
       <div>
@@ -51,7 +60,10 @@ class Navbar extends Component {
               {!this.state.hidden && <Login />}
             </div>
           )}
+          <Link to={`/cart/${userId}`}>
           <CgShoppingBag style={style} size="22"/>
+          </Link>
+
         </nav>
         <hr />
       </div>
@@ -66,6 +78,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
     username: state.auth.username,
+    auth: state.auth
   };
 };
 

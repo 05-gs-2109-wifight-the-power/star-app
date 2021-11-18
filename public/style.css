@@ -12,6 +12,7 @@ body, html {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 label {
@@ -340,45 +341,69 @@ input:focus {
 .star-name {
   font-size: 18px;
   font-weight: bold;
-  margin: 20px 0 20px 0;
+}
+.coordinates {
+  margin: 3px 0 28px 0;
+  font-size: 15px;
+  color: #A8AAB4;
 }
 
 .single-star-description {
 display: flex;
 font-size: 14px;
-/* flex-direction: row; */
 }
 
 .detail-wrapper {
-  margin: 180px 40px 0 0;
+  margin-left: 40px;
   font-size: 16px;
-  color: gray;
+  color: #A8AAB4;
 }
 
 .label {
-  margin-bottom: 10px;
-
+  margin-bottom: 8px;
 }
+
 .detail {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #6B6B6B;
 }
 
 .star-price {
   font-size: 25px;
   font-weight: 500;
   color: black;
+  margin-bottom:5px;
 }
+
 ::placeholder{
   color: #9B9B9B;
+  font-size: 15px;
 }
 .rename-star {
   border: none;
   outline: none;
   font-size: 18px;
   font-weight: 300;
-  border: 1px solid black;
+  border: 1px solid gray;
   padding-left: 8px;
+  margin-bottom: 15px;
   height: 30px;
+  border-radius: 3px;
 }
+.cart-button {
+  height: 30px;
+  width: 120px;
+}
+
+.cart-button:hover {
+  background-color: #1A7CA6;
+  font-weight: bold;
+  color: white;
+  border: none;
+  letter-spacing: .5px;
+}
+
 /* ------- Single star -END ----------- */
 
