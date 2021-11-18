@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStarInDb } from "../store/singleStar";
-import { addToCart } from '../store/shopping'
+import { addToCart } from "../store/shopping";
 
 class EditStar extends Component {
   constructor(props) {
@@ -13,7 +13,10 @@ class EditStar extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCart = this.handleCart.bind(this);
   }
+
+  // componentDidMount() {}
 
   handleChange(e) {
     this.setState({
@@ -29,14 +32,23 @@ class EditStar extends Component {
     });
   }
 
+  handleCart(starId) {
+    this.props.addToCart(starId, this.props.userId);
+  }
+
   render() {
+    console.log("props", this.props);
+    const { star, userId } = this.props;
     return (
       <div className="edit-star-wrapper">
         {/* decide on placement */}
         {/* <h5>${this.props.star.price}</h5> */}
         <form onSubmit={this.handleSubmit}>
-          <label className="star-price" htmlFor="userStarName">${this.props.star.price}</label>
-          <input className="rename-star"
+          <label className="star-price" htmlFor="userStarName">
+            ${this.props.star.price}
+          </label>
+          <input
+            className="rename-star"
             name="newStarName"
             type="text"
             value={this.state.starName}
@@ -46,9 +58,14 @@ class EditStar extends Component {
           {/* can be changed to img when we decide on add to favorites image */}
           {/* <button>pretend this is a star image</button> */}
           <br />
-          <button className="cart-button" type="submit" onClick = {() => this.props.addToCart(this.props.star)}>Add To Cart</button>
+          <button
+            className="cart-button"
+            type="submit"
+            onClick={() => this.handleCart(star.id, userId)}
+          >
+            Add To Cart
+          </button>
         </form>
-
       </div>
     );
   }
@@ -56,12 +73,14 @@ class EditStar extends Component {
 
 const mapState = (state) => ({
   star: state.star,
+  userId: state.auth.id,
 });
 
 const mapDispatch = (dispatch) => ({
   updateUserStarName: (id, updateStarName) =>
     dispatch(updateStarInDb(id, updateStarName)),
-  addToCart: (star) => dispatch(addToCart(star))
+  addToCart: (starId, userId, { history }) =>
+    dispatch(addToCart(starId, userId, history)),
 });
 
 export default connect(mapState, mapDispatch)(EditStar);
